@@ -10,5 +10,7 @@ declare module 'vue' {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppLogos: typeof import('./src/components/AppLogos.vue')['default']
     InputEntry: typeof import('./src/components/InputEntry.vue')['default']
+    TestHttp: typeof import('./src/components/TestHttp.vue')['default']
+    UButton: typeof import('uview-pro/components/u-button/u-button.vue')['default']
   }
 }

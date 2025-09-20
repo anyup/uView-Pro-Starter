@@ -1,27 +1,29 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
+import Uni from '@uni-helper/plugin-uni'
 import Components from '@uni-helper/vite-plugin-uni-components'
-import UniPages from '@uni-helper/vite-plugin-uni-pages'
+import { uViewProResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
+import UniMiddleware from '@uni-helper/vite-plugin-uni-middleware'
+import UniPages from '@uni-helper/vite-plugin-uni-pages'
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 import UniPlatformModifier from '@uni-helper/vite-plugin-uni-platform-modifier'
-import UniMiddleware from '@uni-helper/vite-plugin-uni-middleware'
 import UniRoot from '@uni-ku/root'
-import Uni from '@uni-helper/plugin-uni'
 import UnoCSS from 'unocss/vite'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   plugins: [
     // https://uni-helper.js.org/vite-plugin-uni-components
     Components({
       dts: true,
+      resolvers: [uViewProResolver()],
     }),
     // https://uni-helper.js.org/vite-plugin-uni-pages
     UniPages(),
@@ -38,10 +40,8 @@ export default defineConfig({
     // https://github.com/uni-ku/root
     UniRoot(),
     // https://uni-helper.js.org/plugin-uni
-      Uni(),
+    Uni(),
     UnoCSS(),
   ],
-  
+
 })
-
-

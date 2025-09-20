@@ -1,10 +1,4 @@
 {
-  "easycom": {
-    "autoscan": true,
-    "custom": {
-      "^u-(.*)": "uview-pro/components/u-$1/u-$1.vue"
-    }
-  },
   "pages": [
     {
       "path": "pages/index",
