@@ -1,9 +1,9 @@
-import type { RequestConfig, RequestInterceptor, RequestMeta, RequestOptions } from 'uview-pro'
+import type { RequestConfig, RequestInterceptor, RequestMeta } from 'uview-pro'
 
 // 示例：演示如何使用token
 const token = ''
 // 演示
-const baseUrl = 'https://uviewpro.cn'
+const baseUrl = '/static/json'
 // 演示
 function logout() {
   return new Promise((resolve) => {
@@ -63,7 +63,7 @@ const httpInterceptor: RequestInterceptor = {
     }
     // 业务逻辑错误：登录过期/状态码不正确
     // 这里仅为演示，根据实际业务确定
-    const { code, msg } = rawData as any
+    const { code, msg = '请求错误：未知' } = rawData as any
     if (code === 403 || code === 401) {
       meta.toast && showToast('登录已过期', 'error')
       await logout()

@@ -3,6 +3,18 @@
     {
       "path": "pages/index",
       "type": "home"
+    },
+    {
+      "path": "pages/http/http",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Test http"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "type": "page"
     }
   ],
   "globalStyle": {

@@ -1,9 +1,9 @@
 import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest'
 
 export default defineManifestConfig({
-  'name': '',
+  'name': 'uView Pro Starter',
   'appid': '',
-  'description': '',
+  'description': 'uView Pro Quick Starter Project',
   'versionName': '1.0.0',
   'versionCode': '100',
   'transformPx': false,

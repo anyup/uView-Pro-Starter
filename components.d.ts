@@ -12,5 +12,8 @@ declare module 'vue' {
     InputEntry: typeof import('./src/components/InputEntry.vue')['default']
     TestHttp: typeof import('./src/components/TestHttp.vue')['default']
     UButton: typeof import('uview-pro/components/u-button/u-button.vue')['default']
+    UIcon: typeof import('uview-pro/components/u-icon/u-icon.vue')['default']
+    UNavbar: typeof import('uview-pro/components/u-navbar/u-navbar.vue')['default']
+    USubsection: typeof import('uview-pro/components/u-subsection/u-subsection.vue')['default']
   }
 }

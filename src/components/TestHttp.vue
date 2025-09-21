@@ -14,7 +14,7 @@ const loading = ref(true)
 const toast = ref(true)
 
 // get请求
-function doGet(url = '/api/demo.json') {
+function doGet(url = '/demo.json') {
   $u.http.get<Result>(url, {}, { meta: { loading: loading.value, toast: toast.value } }).then((res: Result) => {
     if (res.code === 200) {
       setTimeout(() => {
@@ -26,7 +26,7 @@ function doGet(url = '/api/demo.json') {
 }
 
 // post请求
-function doPost(url = '/api/demo.json') {
+function doPost(url = '/demo.json') {
   $u.http.post<Result>(url, { name: 'uview-pro' }, { meta: { loading: loading.value, toast: toast.value } }).then((res: Result) => {
     if (res.code === 200) {
       setTimeout(() => {
@@ -51,7 +51,7 @@ function changeLoading(index: number) {
 // 切换模式，切换请求错误时 Toast 的显示与隐藏
 function changeToast(index: number) {
   toast.value = index === 0
-  doGet(toast.value ? '/api/demo1.json' : '/api/demo.json')
+  doGet(toast.value ? '/demo1.json' : '/demo.json')
 }
 
 onMounted(() => {
@@ -60,38 +60,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <view class="u-demo">
-    <view class="u-demo-wrap">
-      <view class="u-demo-title">
+  <view>
+    <view>
+      <view>
         演示效果
       </view>
-      <view class="u-demo-area">
-        <view class="no-mode-here">
+      <view>
+        <view>
           请求结果为：
         </view>
-        <view class="u-demo-result-line">
+        <view>
           {{ JSON.stringify(result) }}
         </view>
       </view>
     </view>
-    <view class="u-config-wrap">
-      <view class="u-config-title u-border-bottom">
+    <view>
+      <view>
         参数配置
       </view>
-      <view class="u-config-item">
-        <view class="u-item-title">
+      <view>
+        <view>
           请求方式
         </view>
         <u-subsection :list="['get', 'post']" @change="changeMethod" />
       </view>
-      <view class="u-config-item">
-        <view class="u-item-title">
+      <view>
+        <view>
           请求 Loading
         </view>
         <u-subsection :list="['显示', '隐藏']" @change="changeLoading" />
       </view>
-      <view class="u-config-item">
-        <view class="u-item-title">
+      <view>
+        <view>
           请求错误时显示 Toast
         </view>
         <u-subsection :list="['显示', '隐藏']" @change="changeToast" />

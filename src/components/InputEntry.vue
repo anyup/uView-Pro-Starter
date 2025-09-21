@@ -25,7 +25,7 @@ function handleClick() {
     </u-button>
   </view>
 
-  <view v-show="show" fixed top-8 left-0 right-0>
+  <view v-show="show" fixed top-20 left-0 right-0>
     <text px8 py2 bg-gray rounded-1>
       Hello{{ `  ${name}` }} 👏
     </text>

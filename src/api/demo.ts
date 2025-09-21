@@ -1,3 +1,3 @@
 import { http } from 'uview-pro'
 
-export const testHttp = () => http.get('/api/demo.json')
+export const testHttp = () => http.get('/demo.json')

@@ -13,7 +13,7 @@
     </view>
     <view
       text="3xl gray4"
-      m="x-4 y-auto"
+      m="x-1 y-auto"
       i-carbon-add transform transition-all-500 hover:rotate-135
     />
     <view flex flex-col hover-class="drop-shadow-md drop-shadow-color-purple5">
@@ -24,7 +24,7 @@
     </view>
     <view
       text="3xl gray4"
-      m="x-4 y-auto"
+      m="x-1 y-auto"
       i-carbon-add transform transition-all-500 hover:rotate-135
     />
     <view flex flex-col hover-class="drop-shadow-md drop-shadow-color-purple5">
