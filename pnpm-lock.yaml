@@ -60,8 +60,8 @@ importers:
         specifier: 2.2.4
         version: 2.2.4(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2))
       uview-pro:
-        specifier: ^0.0.23
-        version: 0.0.23
+        specifier: ^0.1.0
+        version: 0.1.0
       vue:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.9.2)
@@ -4744,8 +4744,8 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
-  uview-pro@0.0.23:
-    resolution: {integrity: sha512-YCVJBqY/YFBWntwYOF3D1L47wmZF6vqHcRa6HPgwiyLvwdh3jGMWSWuJm9kJaVRvgF9Un4UyiYaWhw6Vmdditw==}
+  uview-pro@0.1.0:
+    resolution: {integrity: sha512-OF/LM1duesYhfVPMTfOVqetcTkAeOKVeehbRcBy/7F6R9C4+HKtd2G6ldLe7YNA0YKGDRQKsG/2T86ocZYLOBw==}
     engines: {HBuilderX: ^4.07, uni-app: ^4.07, uni-app-x: ''}
 
   v8-to-istanbul@8.1.1:
@@ -11076,7 +11076,7 @@ snapshots:
 
   utils-merge@1.0.1: {}
 
-  uview-pro@0.0.23: {}
+  uview-pro@0.1.0: {}
 
   v8-to-istanbul@8.1.1:
     dependencies:

@@ -3,6 +3,7 @@ import uViewPro, { httpPlugin } from 'uview-pro'
 import { createSSRApp } from 'vue'
 
 import { httpInterceptor, httpRequestConfig } from '@/api/http.interceptor'
+import theme from '@/common/uview-pro.theme'
 import App from './App.vue'
 import 'uno.css'
 
@@ -10,7 +11,7 @@ export function createApp() {
   const app = createSSRApp(App)
   app.use(Pinia.createPinia())
   // 引入uView Pro
-  app.use(uViewPro)
+  app.use(uViewPro, { theme })
   // 引入http插件
   app.use(httpPlugin, {
     interceptor: httpInterceptor,
