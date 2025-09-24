@@ -2,6 +2,13 @@
 import { $u } from 'uview-pro'
 import { computed, ref } from 'vue'
 
+definePage({
+  layout: 'default',
+  style: {
+    navigationBarTitleText: 'Login',
+  },
+})
+
 // 手机号输入
 const tel = ref('')
 

@@ -9,7 +9,7 @@ export default defineUniPages({
     backgroundTextStyle: '@bgTxtStyle',
     navigationBarBackgroundColor: '#000000',
     navigationBarTextStyle: '@navTxtStyle',
-    navigationBarTitleText: 'Uni Creator',
+    navigationBarTitleText: 'uView Pro',
     navigationStyle: 'custom',
   },
   subPackages: [],

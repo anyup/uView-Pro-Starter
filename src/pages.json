@@ -2,7 +2,11 @@
   "pages": [
     {
       "path": "pages/index",
-      "type": "home"
+      "type": "home",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Home"
+      }
     },
     {
       "path": "pages/http/http",
@@ -14,7 +18,11 @@
     },
     {
       "path": "pages/login/login",
-      "type": "page"
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Login"
+      }
     }
   ],
   "globalStyle": {
@@ -24,7 +32,7 @@
     "backgroundTextStyle": "@bgTxtStyle",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "@navTxtStyle",
-    "navigationBarTitleText": "Uni Creator",
+    "navigationBarTitleText": "uView Pro",
     "navigationStyle": "custom"
   },
   "subPackages": []
