@@ -8,12 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    AppLinks: typeof import('./src/components/AppLinks.vue')['default']
     AppLogos: typeof import('./src/components/AppLogos.vue')['default']
     InputEntry: typeof import('./src/components/InputEntry.vue')['default']
     TestHttp: typeof import('./src/components/TestHttp.vue')['default']
     UButton: typeof import('uview-pro/components/u-button/u-button.vue')['default']
     UIcon: typeof import('uview-pro/components/u-icon/u-icon.vue')['default']
+    UInput: typeof import('uview-pro/components/u-input/u-input.vue')['default']
+    UMask: typeof import('uview-pro/components/u-mask/u-mask.vue')['default']
     UNavbar: typeof import('uview-pro/components/u-navbar/u-navbar.vue')['default']
+    UPopup: typeof import('uview-pro/components/u-popup/u-popup.vue')['default']
     USubsection: typeof import('uview-pro/components/u-subsection/u-subsection.vue')['default']
   }
 }

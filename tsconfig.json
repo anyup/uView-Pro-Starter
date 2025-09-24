@@ -18,8 +18,8 @@
       "@mini-types/alipay",
       "miniprogram-api-typings",
       "@uni-helper/vite-plugin-uni-pages",
-      "@uni-helper/uni-types",
-      "uview-pro/types"
+      "uview-pro/types",
+      "@uni-helper/uni-types"
     ],
     "strict": true,
     "noImplicitThis": true,
@@ -35,7 +35,6 @@
     "src/**/*.jsx",
     "src/**/*.vue"
   ],
-  "exclude": ["node_modules"],
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-types/volar-plugin"]
   }

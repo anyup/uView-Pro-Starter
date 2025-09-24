@@ -27,8 +27,5 @@
     "navigationBarTitleText": "Uni Creator",
     "navigationStyle": "custom"
   },
-  "subPackages": [],
-  "tabBar": {
-    "list": []
-  }
+  "subPackages": []
 }

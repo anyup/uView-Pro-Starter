@@ -43,5 +43,20 @@ export default defineConfig({
     Uni(),
     UnoCSS(),
   ],
-
+  build: {
+    target: 'es6',
+    cssTarget: 'chrome61',
+  },
+  optimizeDeps: {
+    exclude: [
+      'vue-demi',
+    ],
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/uview-pro.theme.scss";',
+      },
+    },
+  },
 })

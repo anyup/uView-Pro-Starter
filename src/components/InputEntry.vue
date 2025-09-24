@@ -2,32 +2,41 @@
 import { ref } from 'vue'
 
 const name = ref('')
-const show = ref(false)
+const popupShow = ref(false)
 
 function handleClick() {
-  show.value = true
-  setTimeout(() => {
-    show.value = false
-  }, 3000)
+  popupShow.value = true
 }
 </script>
 
 <template>
-  <view m4 p2 border="1px solid gray">
-    <input
-      v-model="name"
-      placeholder="What's your name?"
-    >
+  <view class="input-box">
+    <u-input v-model="name" clearable placeholder="What's your name?" />
   </view>
   <view>
-    <u-button type="primary" :disabled="!name" @click="handleClick">
+    <u-button :disabled="!name" type="primary" @click="handleClick">
       Hello
     </u-button>
   </view>
 
-  <view v-show="show" fixed top-20 left-0 right-0>
-    <text px8 py2 bg-gray rounded-1>
+  <u-popup v-model="popupShow" mode="bottom" border-radius="14" height="300px">
+    <view class="popup-box">
       Hello{{ `  ${name}` }} 👏
-    </text>
-  </view>
+    </view>
+  </u-popup>
 </template>
+
+<style scoped lang="scss">
+.input-box {
+  margin: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid gray;
+}
+.popup-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5rem;
+}
+</style>
