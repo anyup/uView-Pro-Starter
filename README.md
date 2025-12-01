@@ -1,8 +1,10 @@
 <p align="center">
-    <img alt="logo" src="https://ik.imagekit.io/anyup/uview-pro/common/logo.png" width="120" height="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://ik.imagekit.io/anyup/uview-pro/common/logo-new.png" width="120" height="120" style="margin-bottom: 10px;">
 </p>
 <h3 align="center" style="margin: 30px 0 30px;font-weight: bold;font-size:40px;">uView Pro</h3>
 <h3 align="center">uni-app Vue3 多平台快速开发的 UI 框架</h3>
+
+<div align="center">
 
 [![star](https://gitee.com/anyup/uView-Pro/badge/star.svg)](https://gitee.com/anyup/uView-Pro)
 [![fork](https://gitee.com/anyup/uView-Pro/badge/fork.svg)](https://gitee.com/anyup/uView-Pro)
@@ -14,6 +16,8 @@
 [![node version](https://img.shields.io/badge/node-%3E%3D18-green)](https://nodejs.org/)
 [![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)](https://pnpm.io/)
 [![license](https://img.shields.io/github/license/anyup/uView-Pro?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
+
+</div>
 
 ## 说明
 
@@ -38,12 +42,14 @@
 
 <table class="table">
     <tr>
-        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_wx.jpg" width="200" height="200" ></td>
-        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_h5.png" width="200" height="200" ></td>
-        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_android.png" width="200" height="200" ></td>
+        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_wx.jpg" width="150" height="150" ></td>
+        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_alipay.png" width="150" height="150" ></td>
+        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_h5.png" width="150" height="150" ></td>
+        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_uview_pro_android.png" width="150" height="150" ></td>
     </tr>
     <tr>
         <td align="center"><strong>微信小程序</strong><br>（微信扫码）</td>
+        <td align="center"><strong>支付宝小程序</strong><br>（支付宝扫码）</td>
         <td align="center"><strong>H5</strong><br>（浏览器扫码）</td>
         <td align="center"><strong>Android</strong><br>（浏览器扫码）</td>
     </tr>
@@ -56,6 +62,8 @@ pnpm install
 pnpm dev
 ```
 
+更多运行和构建命令参考：[pnpm 运行指南](README-pnpm.md)
+
 ## 链接
 
 - [Github](https://github.com/anyup/uview-pro)
@@ -65,11 +73,13 @@ pnpm dev
 
 ## 交流反馈
 
+`uView Pro` 微信交流群： [点击进入](https://uviewpro.cn/zh/resource/about.html)
+
 `uView Pro` QQ 交流群： [点击进入](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=98nSVDldWEbDdq4lxiP4aL7uATfMSlI6&authKey=G2yQJ5MQiKzMldaxBsIfKt17NuJuUw8Fr6zdKLggc6NZXgw4BVbqkU2U3EE994yd&noverify=0&group_code=811732166)
 
 <table class="table">
     <tr>
-        <td><img src="https://ik.imagekit.io/anyup/images/social/weixin-chat.png?updatedAt=1757940337724" width="250" height="345" ></td>
+        <td><img src="https://ik.imagekit.io/anyup/images/social/weixin-chat-cl.png" width="250" height="345" ></td>
         <td><img src="https://ik.imagekit.io/anyup/images/social/qq-chat.png" width="250" height="345" ></td>
     </tr>
     <tr>
@@ -210,7 +220,7 @@ export function createApp() {
 
 <table class="table">
     <tr>
-        <td><img src="https://ik.imagekit.io/anyup/images/social/weixin-pay.png" width="250" height="345" ></td>
+        <td><img src="https://ik.imagekit.io/anyup/images/social/wechat-pay.png" width="250" height="345" ></td>
         <td><img src="https://ik.imagekit.io/anyup/images/social/ali-pay.png" width="250" height="345" ></td>
     </tr>
     <tr>
