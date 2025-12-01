@@ -55,7 +55,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/uview-pro.theme.scss";',
+        additionalData: '@import "uview-pro/theme.scss";',
       },
     },
   },

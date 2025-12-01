@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { useTheme } from 'uview-pro'
+import { computed } from 'vue'
+
+const { darkMode, themes, currentTheme } = useTheme()
+
+const themeName = computed(() => currentTheme.value?.name)
 function handleClickGithub() {
   if (window?.open) {
-    window.open('https://github.com/uni-ku/root')
+    window.open('https://github.com/anyup/uview-pro', '_blank')
   }
   else {
     uni.showToast({
@@ -14,10 +20,12 @@ function handleClickGithub() {
 
 <template>
   <div>
-    <KuRootView />
+    <u-config-provider :dark-mode="darkMode" :current-theme="themeName" :themes="themes">
+      <KuRootView />
+    </u-config-provider>
     <div class="root-bar">
-      Root component By
-      <span class="color-blue" @click="handleClickGithub">uni-ku/root</span>
+      Template By
+      <span class="color-blue" @click="handleClickGithub"> · uView Pro</span>
     </div>
   </div>
 </template>
@@ -40,6 +48,7 @@ function handleClickGithub() {
   box-sizing: border-box;
   padding: 0 20px;
 }
+
 .color-blue {
   color: #409eff;
   cursor: pointer;

@@ -75,8 +75,8 @@ importers:
         specifier: 2.2.4
         version: 2.2.4(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2))
       uview-pro:
-        specifier: ^0.1.1
-        version: 0.1.1
+        specifier: ^0.4.2
+        version: 0.4.2
       vue:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.9.2)
@@ -119,7 +119,7 @@ importers:
         version: 1.0.0-alpha.6(@uni-helper/uni-app-types@1.0.0-alpha.6(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2)))(@uni-helper/uni-cloud-types@1.0.0-alpha.6(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2)))(@uni-helper/uni-ui-types@1.0.0-alpha.6(@uni-helper/uni-app-types@1.0.0-alpha.6(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2)))(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2)))(typescript@5.9.2)(vue@3.4.21(typescript@5.9.2))
       '@uni-helper/unocss-preset-uni':
         specifier: ^0.2.11
-        version: 0.2.11(@unocss/preset-legacy-compat@66.5.2)(@unocss/preset-mini@66.5.2)(@unocss/rule-utils@66.0.0)(@unocss/vite@66.0.0(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))(unocss-applet@0.11.0(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2))))(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))
+        version: 0.2.11(@unocss/preset-legacy-compat@66.5.2)(@unocss/preset-mini@66.5.2)(@unocss/rule-utils@66.5.2)(@unocss/vite@66.0.0(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))(unocss-applet@0.11.0(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2))))(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))
       '@uni-helper/vite-plugin-uni-components':
         specifier: ^0.2.1
         version: 0.2.3(rollup@4.52.2)
@@ -4856,8 +4856,8 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
-  uview-pro@0.1.1:
-    resolution: {integrity: sha512-xUwE7Bh90CkgFBcF/mUv6uud63qiqWQGIYrlNIvgV7AjovNigcB4W0y3kAYnV/xUwIfVNqelOHkKvweQUed/8w==}
+  uview-pro@0.4.2:
+    resolution: {integrity: sha512-KYcp75g1FO8SDImdDf5bHYzpEBlXWVZ7Jp/etZGQu1gjga8pQCxIc856VCPEC9my4eaOBAnqO4BekpM7I5Y58g==}
     engines: {HBuilderX: ^4.07, uni-app: ^4.07, uni-app-x: ''}
 
   v8-to-istanbul@8.1.1:
@@ -7618,11 +7618,11 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@uni-helper/unocss-preset-uni@0.2.11(@unocss/preset-legacy-compat@66.5.2)(@unocss/preset-mini@66.5.2)(@unocss/rule-utils@66.0.0)(@unocss/vite@66.0.0(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))(unocss-applet@0.11.0(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2))))(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))':
+  '@uni-helper/unocss-preset-uni@0.2.11(@unocss/preset-legacy-compat@66.5.2)(@unocss/preset-mini@66.5.2)(@unocss/rule-utils@66.5.2)(@unocss/vite@66.0.0(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))(unocss-applet@0.11.0(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2))))(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))':
     dependencies:
       '@uni-helper/uni-env': 0.1.8
       '@unocss/preset-legacy-compat': 66.5.2
-      '@unocss/rule-utils': 66.0.0
+      '@unocss/rule-utils': 66.5.2
       unocss: 66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2))
       unocss-applet: 0.11.0(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@24.5.2)(sass@1.64.2)(terser@5.44.0))(vue@3.4.21(typescript@5.9.2)))
     optionalDependencies:
@@ -11291,7 +11291,7 @@ snapshots:
 
   utils-merge@1.0.1: {}
 
-  uview-pro@0.1.1: {}
+  uview-pro@0.4.2: {}
 
   v8-to-istanbul@8.1.1:
     dependencies:

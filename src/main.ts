@@ -3,7 +3,7 @@ import uViewPro, { httpPlugin } from 'uview-pro'
 import { createSSRApp } from 'vue'
 
 import { httpInterceptor, httpRequestConfig } from '@/api/http.interceptor'
-import theme from '@/common/uview-pro.theme'
+import theme from '@/uview-pro.theme'
 import App from './App.vue'
 
 import 'core-js/actual/array/iterator'

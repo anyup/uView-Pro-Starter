@@ -2,6 +2,7 @@
 import AppFooter from '@/components/AppFooter.vue'
 import AppLinks from '@/components/AppLinks.vue'
 import AppLogos from '@/components/AppLogos.vue'
+import AppThemes from '@/components/AppThemes.vue'
 import InputEntry from '@/components/InputEntry.vue'
 
 definePage({
@@ -18,5 +19,6 @@ definePage({
     <InputEntry />
     <AppFooter />
     <AppLinks />
+    <AppThemes />
   </view>
 </template>
