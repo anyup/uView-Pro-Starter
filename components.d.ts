@@ -13,8 +13,11 @@ declare module 'vue' {
     AppThemes: typeof import('./src/components/AppThemes.vue')['default']
     InputEntry: typeof import('./src/components/InputEntry.vue')['default']
     TestHttp: typeof import('./src/components/TestHttp.vue')['default']
+    UActionSheet: typeof import('uview-pro/components/u-action-sheet/u-action-sheet.vue')['default']
+    UAvatar: typeof import('uview-pro/components/u-avatar/u-avatar.vue')['default']
     UButton: typeof import('uview-pro/components/u-button/u-button.vue')['default']
-    UCalendar: typeof import('uview-pro/components/u-calendar/u-calendar.vue')['default']
+    UCellGroup: typeof import('uview-pro/components/u-cell-group/u-cell-group.vue')['default']
+    UCellItem: typeof import('uview-pro/components/u-cell-item/u-cell-item.vue')['default']
     UConfigProvider: typeof import('uview-pro/components/u-config-provider/u-config-provider.vue')['default']
     UGap: typeof import('uview-pro/components/u-gap/u-gap.vue')['default']
     UIcon: typeof import('uview-pro/components/u-icon/u-icon.vue')['default']
@@ -22,8 +25,8 @@ declare module 'vue' {
     UMask: typeof import('uview-pro/components/u-mask/u-mask.vue')['default']
     UNavbar: typeof import('uview-pro/components/u-navbar/u-navbar.vue')['default']
     UPopup: typeof import('uview-pro/components/u-popup/u-popup.vue')['default']
-    URootPortal: typeof import('uview-pro/components/u-root-portal/u-root-portal.vue')['default']
     USelect: typeof import('uview-pro/components/u-select/u-select.vue')['default']
+    USlider: typeof import('uview-pro/components/u-slider/u-slider.vue')['default']
     USubsection: typeof import('uview-pro/components/u-subsection/u-subsection.vue')['default']
   }
 }

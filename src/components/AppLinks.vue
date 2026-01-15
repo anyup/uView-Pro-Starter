@@ -4,16 +4,9 @@ import { $u } from 'uview-pro'
 
 <template>
   <view>
-    <view class="mt-5">
-      <u-button type="success" @click="$u.route('pages/http/http')">
-        Test http
-      </u-button>
-    </view>
-
-    <view class="mt-5">
-      <u-button type="warning" @click="$u.route('pages/login/login')">
-        To login
-      </u-button>
-    </view>
+    <u-cell-group title="页面">
+      <u-cell-item title="http页面" @click="$u.route('pages/http/http')" />
+      <u-cell-item title="登录页面" @click="$u.route('pages/login/login')" />
+    </u-cell-group>
   </view>
 </template>

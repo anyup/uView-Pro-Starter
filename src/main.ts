@@ -17,7 +17,14 @@ export function createApp() {
   const app = createSSRApp(App)
   app.use(Pinia.createPinia())
   // 引入uView Pro
-  app.use(uViewPro, { theme })
+  app.use(uViewPro, {
+    theme: {
+      themes: theme,
+      defaultTheme: 'green',
+      defaultDarkMode: 'light',
+    },
+    locale: 'zh-CN',
+  })
   // 引入http插件
   app.use(httpPlugin, {
     interceptor: httpInterceptor,

@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { useTheme } from 'uview-pro'
+import { useLocale, useTheme } from 'uview-pro'
 import { computed } from 'vue'
 
 const { darkMode, themes, currentTheme } = useTheme()
 
-const themeName = computed(() => currentTheme.value?.name)
+const { currentLocale } = useLocale()
+
+const currentThemeName = computed(() => currentTheme.value?.name)
+const currentLocaleName = computed(() => currentLocale.value?.name)
+
 function handleClickGithub() {
   if (window?.open) {
-    window.open('https://github.com/anyup/uview-pro', '_blank')
+    window.open('https://uviewpro.cn', '_blank')
   }
   else {
     uni.showToast({
@@ -20,7 +24,10 @@ function handleClickGithub() {
 
 <template>
   <div>
-    <u-config-provider :dark-mode="darkMode" :current-theme="themeName" :themes="themes">
+    <u-config-provider
+      :dark-mode="darkMode" :themes="themes" :current-theme="currentThemeName"
+      :current-locale="currentLocaleName"
+    >
       <KuRootView />
     </u-config-provider>
     <div class="root-bar">

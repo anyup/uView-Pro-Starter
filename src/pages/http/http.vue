@@ -10,7 +10,7 @@ definePage({
 </script>
 
 <template>
-  <view px-10 py-20 text-center>
+  <view px-5 py-5 text-center>
     <TestHttp />
   </view>
 </template>

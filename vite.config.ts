@@ -48,9 +48,7 @@ export default defineConfig({
     cssTarget: 'chrome61',
   },
   optimizeDeps: {
-    exclude: [
-      'vue-demi',
-    ],
+    exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['uview-pro', 'vue-demi'] : ['vue-demi'],
   },
   css: {
     preprocessorOptions: {

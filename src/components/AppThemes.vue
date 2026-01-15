@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { useTheme } from 'uview-pro'
+import { useLocale, useTheme } from 'uview-pro'
+
 import { ref } from 'vue'
 
-const { getAvailableThemes, setTheme, setDarkMode } = useTheme()
+const { getAvailableThemes, setTheme, setDarkMode, currentTheme, darkMode } = useTheme()
+const { locales, setLocale, currentLocale } = useLocale()
 const show = ref(false)
-const showType = ref<'theme' | 'darkMode'>('theme')
+const showType = ref<'theme' | 'darkMode' | 'locale'>('theme')
 const list = ref<any[]>([])
 
 function showThemeSelector() {
@@ -34,6 +36,15 @@ function showDarkModeSelector() {
   showType.value = 'darkMode'
   show.value = true
 }
+
+function showLocaleSelector() {
+  list.value = locales.value.map((locale: any) => ({
+    value: locale.name,
+    label: locale.name === 'zh-CN' ? '中文' : 'English',
+  }))
+  showType.value = 'locale'
+  show.value = true
+}
 function confirm(e: any[]) {
   const value = e[0].value
   if (showType.value === 'theme') {
@@ -41,6 +52,14 @@ function confirm(e: any[]) {
   }
   else if (showType.value === 'darkMode') {
     setDarkMode(value)
+  }
+  else if (showType.value === 'locale') {
+    setLocale(value)
+    setTimeout(() => {
+      uni.reLaunch({
+        url: '/',
+      })
+    }, 100)
   }
   show.value = false
 }
@@ -50,12 +69,10 @@ function confirm(e: any[]) {
   <view>
     <u-gap />
     <u-select v-model="show" mode="single-column" :list="list" @confirm="confirm" />
-    <u-button type="primary" @click="showThemeSelector">
-      选择主题
-    </u-button>
-    <u-gap />
-    <u-button type="primary" @click="showDarkModeSelector">
-      暗黑模式
-    </u-button>
+    <u-cell-group title="设置">
+      <u-cell-item title="主题" :value="currentTheme?.label" @click="showThemeSelector" />
+      <u-cell-item title="暗黑模式" :value="darkMode" @click="showDarkModeSelector" />
+      <u-cell-item title="多语言" :value="currentLocale?.name === 'zh-CN' ? '中文' : 'English'" @click="showLocaleSelector" />
+    </u-cell-group>
   </view>
 </template>

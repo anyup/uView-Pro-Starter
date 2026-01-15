@@ -1,7 +1,7 @@
 <script setup lang="ts">
 function handleClickGithub() {
   if (window?.open) {
-    window.open('https://github.com/uni-helper/create-uni')
+    window.open('https://github.com/anyup/uview-pro')
   }
   else {
     uni.showToast({
