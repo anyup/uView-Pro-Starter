@@ -1,3 +1,9 @@
+<!-- 语言切换按钮 -->
+<p align="right" style="margin-top: 10px;">
+    <a href="README.en.md" style="padding: 6px 16px; background: #2979ff; color: #fff; border-radius: 6px; text-decoration: none; font-weight: bold;">English</a>
+    <span style="padding: 6px 16px; background: #ededed; color: #333; border-radius: 6px; margin-left: 8px; font-weight: bold;">中文</span>
+</p>
+
 <p align="center">
     <img alt="logo" src="https://ik.imagekit.io/anyup/uview-pro/common/logo-new.png" width="120" height="120" style="margin-bottom: 10px;">
 </p>
@@ -35,6 +41,21 @@
 - 众多的常用页面和布局，让您专注逻辑，事半功倍
 - 详尽的文档支持，现代化的演示效果
 - 按需引入，精简打包体积
+
+## 鸿蒙预览
+
+🎉🎉 uView Pro 鸿蒙端应用已正式上线华为鸿蒙应用市场，为您提供完整的业务场景演示平台，包含组件库、模板示例、场景案例等，支持一键复制下载，帮助开发者快速上手并体验组件的实际应用价值！
+
+> 系统要求：仅支持 HarmonyOS 5.0 及以上版本设备
+
+<table>
+    <tr align="center">
+        <td><img src="https://ik.imagekit.io/anyup/images/social/qr_harmony.png" width="180" height="180" ></td>
+    </tr>
+    <tr>
+        <td align="center"><strong>鸿蒙应用</strong><br>（浏览器扫码）</td>
+    </tr>
+</table>
 
 ## 手机预览
 

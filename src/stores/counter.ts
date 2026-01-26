@@ -6,5 +6,20 @@ export const useCounterStore = defineStore('counter', () => {
   function increment() {
     count.value++
   }
-  return { count, increment }
+
+  function decrement() {
+    if (count.value > 0) {
+      count.value--
+    }
+  }
+
+  function reset() {
+    count.value = 0
+  }
+
+  function setCount(n: number) {
+    count.value = n
+  }
+
+  return { count, increment, decrement, reset, setCount }
 })

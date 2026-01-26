@@ -1,0 +1,12 @@
+:deep(.code-text) {
+    font-family: 'Monaco', 'Consolas', monospace;
+    white-space: pre-wrap;
+    line-height: 1.4;
+}
+
+.code-block {
+    background: $u-bg-gray-light;
+    padding: 24rpx;
+    border-radius: 8rpx;
+    margin: 16rpx 0;
+}

@@ -1,0 +1,41 @@
+{
+  "components": {
+    "find": "Found",
+    "matchingComponent": "matching components",
+    "clear": "Clear",
+    "searchComponent": "Search components...",
+    "search": "Search",
+    "notFound": "No matching component was found.",
+    "theme": "Switch Theme",
+    "desc": "uView Pro is a high-quality, cross-platform UI component library for multiple platforms. It includes 80+ built-in components and a rich utility library to help efficiently develop Mini Programs, H5, Apps, HarmonyOS, and more."
+  },
+  "js": {
+    "desc": "Numerous intimate gadgets are a weapon that you can call upon during the development process, allowing you to dart in your hand and pierce the Yang with a hundred steps."
+  },
+  "template": {
+    "desc": "Collection of many commonly used pages and layouts, reducing the repetitive work of developers, allowing you to focus on logic and get twice the result with half the effort."
+  },
+  "nav": {
+    "components": "Components",
+    "js": "Tools",
+    "template": "Template",
+    "about": "About",
+    "experience": "Experience"
+  },
+  "common": {
+    "intro": "UI framework for rapid development of multiple platforms",
+    "title": "uView Pro",
+    "tryit": "Try-it",
+    "experienceMap": "Experience Map",
+    "experienceMapDesc": "View component experience levels and task completion status",
+    "scene": "Scene",
+    "sceneDesc": "Experience business scenarios and feel the use of components in applications"
+  },
+  "theme": {
+    "uviewpro": "Default",
+    "purple": "Purple",
+    "green": "Green",
+    "orange": "Orange",
+    "dark": "Dark blue"
+  }
+}

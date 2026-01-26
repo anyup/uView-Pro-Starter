@@ -1,28 +1,43 @@
 {
   "pages": [
     {
-      "path": "pages/index",
-      "type": "home",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "Home"
-      }
+      "path": "pages/home/home"
     },
     {
-      "path": "pages/http/http",
-      "type": "page",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "Test http"
-      }
+      "path": "pages/home/uview-intro"
     },
     {
-      "path": "pages/login/login",
-      "type": "page",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "Login"
-      }
+      "path": "pages/home/http-demo"
+    },
+    {
+      "path": "pages/home/pinia-demo"
+    },
+    {
+      "path": "pages/home/components-demo"
+    },
+    {
+      "path": "pages/home/create-demo"
+    },
+    {
+      "path": "pages/about/about"
+    },
+    {
+      "path": "pages/about/about-me"
+    },
+    {
+      "path": "pages/about/contributors"
+    },
+    {
+      "path": "pages/about/faq"
+    },
+    {
+      "path": "pages/about/guide"
+    },
+    {
+      "path": "pages/about/license"
+    },
+    {
+      "path": "pages/about/settings"
     }
   ],
   "globalStyle": {
@@ -32,8 +47,25 @@
     "backgroundTextStyle": "@bgTxtStyle",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "@navTxtStyle",
-    "navigationBarTitleText": "uView Pro",
+    "navigationBarTitleText": "uView Pro Starter",
     "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "@tabFontColor",
+    "selectedColor": "@tabSelectedColor",
+    "backgroundColor": "@tabBgColor",
+    "borderStyle": "@tabBorderStyle",
+    "list": [
+      {
+        "pagePath": "pages/home/home"
+      },
+      {
+        "pagePath": "pages/about/about"
+      }
+    ]
+  },
+  "easycom": {
+    "autoscan": true
   },
   "subPackages": []
 }

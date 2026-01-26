@@ -1,10 +1,13 @@
 {
   "name": "uView Pro Starter",
-  "appid": "",
-  "description": "uView Pro Quick Starter Project",
+  "appid": "__UNI__8BA4DF3",
+  "description": "uView Pro Starter",
   "versionName": "1.0.0",
-  "versionCode": "100",
+  "versionCode": "1",
   "transformPx": false,
+  "uniStatistics": {
+    "enable": false
+  },
   "app-plus": {
     "usingComponents": true,
     "nvueStyleCompiler": "uni-app",
@@ -40,9 +43,13 @@
       "sdkConfigs": {}
     }
   },
+  "h5": {
+    "darkmode": true,
+    "themeLocation": "theme.json"
+  },
   "quickapp": {},
   "mp-weixin": {
-    "appid": "",
+    "appid": "wxbb176981bffc17fe",
     "setting": {
       "urlCheck": false
     },
@@ -59,12 +66,5 @@
   "mp-toutiao": {
     "usingComponents": true
   },
-  "uniStatistics": {
-    "enable": false
-  },
-  "vueVersion": "3",
-  "h5": {
-    "darkmode": true,
-    "themeLocation": "theme.json"
-  }
+  "vueVersion": "3"
 }

@@ -1,35 +1,24 @@
 import * as Pinia from 'pinia'
-import uViewPro, { httpPlugin } from 'uview-pro'
+import uViewPro from 'uview-pro'
 import { createSSRApp } from 'vue'
-
-import { httpInterceptor, httpRequestConfig } from '@/api/http.interceptor'
-import theme from '@/uview-pro.theme'
+import themes from '@/common/uview-pro.theme'
+import i18n from '@/locale'
+import store from '@/stores'
 import App from './App.vue'
-
-import 'core-js/actual/array/iterator'
-import 'core-js/actual/promise'
-import 'core-js/actual/object/assign'
-import 'core-js/actual/promise/finally'
-
 import 'uno.css'
 
 export function createApp() {
   const app = createSSRApp(App)
-  app.use(Pinia.createPinia())
-  // 引入uView Pro
+  app.use(i18n)
   app.use(uViewPro, {
     theme: {
-      themes: theme,
+      themes,
       defaultTheme: 'green',
       defaultDarkMode: 'light',
     },
     locale: 'zh-CN',
   })
-  // 引入http插件
-  app.use(httpPlugin, {
-    interceptor: httpInterceptor,
-    requestConfig: httpRequestConfig,
-  })
+  app.use(store)
   return {
     app,
     Pinia,
