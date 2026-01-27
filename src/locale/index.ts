@@ -1,11 +1,11 @@
 import { createI18n } from 'vue-i18n'
 
-import en from './lang/en.json' // 英文
-import zhHans from './lang/zh-Hans.json' // 简体中文
+import enUS from './lang/en-US.json' // 英文
+import zhCN from './lang/zh-CN.json' // 简体中文
 
 const messages = {
-  en,
-  'zh-Hans': zhHans,
+  'en': enUS,
+  'zh-Hans': zhCN,
 }
 
 // 安全获取locale，避免在SSR环境下出现问题

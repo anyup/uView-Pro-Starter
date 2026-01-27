@@ -3,10 +3,7 @@ import type { RequestConfig, RequestInterceptor, RequestMeta, RequestOptions } f
 // 示例：演示如何使用token
 const token = ''
 // 演示
-const baseUrl = 'https://env-00jxty5jnvo5-static.normal.cloudstatic.cn'
-// #ifdef APP
-// baseUrl = '/static/app';
-// #endif
+const baseUrl = 'https://api.example.com'
 
 // 全局配置
 const httpRequestConfig: RequestConfig = {
@@ -26,7 +23,6 @@ const httpRequestConfig: RequestConfig = {
 const httpInterceptor: RequestInterceptor = {
   // 请求拦截器
   request: (config: RequestOptions) => {
-    // console.log('请求拦截器', config);
     const meta: RequestMeta = config.meta || {}
     meta.loading && showLoading()
     if (token) {
@@ -36,7 +32,6 @@ const httpInterceptor: RequestInterceptor = {
   },
   // 响应拦截器
   response: async (response: any) => {
-    // console.log('响应拦截器', response);
     const meta: RequestMeta = response.config?.meta || {}
     meta.loading && hideLoading()
     const { statusCode, data: rawData, errMsg } = response as any
@@ -55,20 +50,6 @@ const httpInterceptor: RequestInterceptor = {
       meta.toast && showToast(errorMessage, 'error')
       throw new Error(`${errorMessage}：${errMsg}`)
     }
-    // 业务逻辑错误：登录过期/状态码不正确
-    // 这里仅为演示，根据实际业务确定
-    // const { code, msg } = rawData as any;
-    // if (code === 403 || code === 401) {
-    //     meta.toast && showToast('登录已过期', 'error');
-    //     await logout();
-    //     setTimeout(() => {
-    //         uni.reLaunch({ url: '/pages/login/login' });
-    //     }, 1000);
-    //     throw new Error(`请求错误[${code}]：${msg}`);
-    // } else if (!(code >= 200 && code < 300)) {
-    //     meta.toast && showToast(msg, 'error', { duration: 2500 });
-    //     throw new Error(`请求错误[${code}]：${msg}`);
-    // }
     return rawData
   },
 }

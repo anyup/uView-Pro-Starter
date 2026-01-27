@@ -15,7 +15,7 @@ async function fetchData() {
     responseData.value = null
 
     // 使用uview-pro的http请求
-    const result = await $u.http.get('/mock/data.json', {
+    const result = await $u.http.get('/mock/data.json', {}, {
       meta: {
         loading: false, // 手动控制loading
         toast: true,
@@ -105,7 +105,7 @@ async function uploadFile() {
     responseData.value = null
 
     // 这里只是演示，实际需要选择文件
-    $u.toast('请选择文件进行上传', 'warning')
+    $u.toast('请选择文件上传', 'error')
   }
   catch (err: any) {
     error.value = err.message || '上传失败'
