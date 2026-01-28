@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppPage: typeof import('./src/components/app-page/app-page.vue')['default']
+    AppTabbar: typeof import('./src/components/app-tabbar/app-tabbar.vue')['default']
     UAvatar: typeof import('uview-pro/components/u-avatar/u-avatar.vue')['default']
     UBadge: typeof import('uview-pro/components/u-badge/u-badge.vue')['default']
     UButton: typeof import('uview-pro/components/u-button/u-button.vue')['default']
@@ -39,5 +40,6 @@ declare module 'vue' {
     UTag: typeof import('uview-pro/components/u-tag/u-tag.vue')['default']
     UText: typeof import('uview-pro/components/u-text/u-text.vue')['default']
     UToast: typeof import('uview-pro/components/u-toast/u-toast.vue')['default']
+    UTransition: typeof import('uview-pro/components/u-transition/u-transition.vue')['default']
   }
 }

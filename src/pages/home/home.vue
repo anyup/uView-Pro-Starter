@@ -114,7 +114,7 @@ function goToUrl(url: string) {
       <!-- 欢迎区域 -->
       <view class="hero-section">
         <view class="hero-content">
-          <u-text text="uView Pro Starter" size="48rpx" bold color="var(--u-white-color)" />
+          <u-text :text="$t('common.appName')" size="48rpx" bold color="var(--u-white-color)" />
           <u-text text="基于uni-app + uView Pro的企业级快速启动项目" size="26rpx" color="var(--u-white-color)" />
           <u-text text="Vue3 + TypeScript + 最佳实践" size="24rpx" color="var(--u-content-color)" custom-class="hero-badge" />
         </view>

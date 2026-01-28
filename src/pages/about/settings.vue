@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useLocale, useTheme } from 'uview-pro'
+import { useTheme } from 'uview-pro'
 import { computed, ref } from 'vue'
-import { useLang } from '@/hooks'
+import { useLang } from '@/composables'
 
 const {
   getDarkMode,
@@ -11,8 +11,7 @@ const {
   getAvailableThemes,
 } = useTheme()
 const uToastRef = ref()
-const { currentLocale, locales: availableLocales } = useLocale()
-const { switchLang, getLangLabel, currentLangLabel } = useLang()
+const { switchLang, currentLangLabel, currentLang, availableLangs } = useLang()
 
 const showThemePicker = ref(false)
 const showLocalePicker = ref(false)
@@ -31,13 +30,6 @@ const themes = computed(() => {
     name: theme.name,
     label: theme.label || theme.name,
     color: theme?.color?.primary || '#2979ff',
-  }))
-})
-
-const locales = computed(() => {
-  return availableLocales.value.map(locale => ({
-    name: locale.name,
-    label: getLangLabel(locale.name),
   }))
 })
 
@@ -209,14 +201,14 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
           </view>
           <view class="theme-picker__body">
             <view
-              v-for="locale in locales" :key="locale.name" class="theme-item"
-              :class="{ 'theme-item--active': currentLocale.name === locale.name }" @click="selectLocale(locale.name)"
+              v-for="locale in availableLangs" :key="locale.name" class="theme-item"
+              :class="{ 'theme-item--active': currentLang === locale.name }" @click="selectLocale(locale.name)"
             >
               <view class="theme-item__name">
                 {{ locale.label }}
               </view>
               <u-icon
-                v-if="currentLocale.name === locale.name" name="checkmark-circle" size="32"
+                v-if="currentLang === locale.name" name="checkmark-circle" size="32"
                 color="var(--u-type-primary)"
               />
             </view>
