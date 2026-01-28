@@ -4,15 +4,25 @@ import { useI18n } from 'vue-i18n'
 
 export function useLang() {
   const { locale } = useI18n()
-  const { setLocale, currentLocale } = useLocale()
+  const { setLocale, currentLocale, locales } = useLocale()
 
   // 派生当前语言（基于 uView Pro 的 currentLocale），确保模板自动响应更新
   const currentLang = computed(() => {
     return currentLocale.value?.name || currentLocale.value || ''
   })
+  // 当前语言标签
   const currentLangLabel = computed(() => {
     return getLangLabel(currentLang.value)
   })
+
+  // 可用语言列表
+  const availableLangs = computed(() => {
+    return locales.value.map(locale => ({
+      name: locale.name,
+      label: getLangLabel(locale.name),
+    }))
+  })
+  // 辅助函数：根据不同的语言代码格式，返回i18n使用的语言代码
   function getI18nLocale(value: string) {
     switch (value) {
       case 'zh-CN':
@@ -26,6 +36,7 @@ export function useLang() {
     }
   }
 
+  // 辅助函数：根据不同的语言代码格式，返回uView Pro使用的语言代码
   function getUProLocale(value: string) {
     switch (value) {
       case 'zh-Hans':
@@ -39,6 +50,7 @@ export function useLang() {
     }
   }
 
+  // 根据语言代码返回对应的语言文字标签
   function getLangLabel(localeName: string) {
     const normalized = getUProLocale(localeName)
     if (normalized === 'zh-CN')
@@ -48,6 +60,7 @@ export function useLang() {
     return normalized
   }
 
+  // 切换语言
   function switchLang(lang: string) {
     const i18nLocale = getI18nLocale(lang)
     const uProLocale = getUProLocale(lang)
@@ -62,6 +75,7 @@ export function useLang() {
   return {
     currentLang,
     currentLangLabel,
+    availableLangs,
     getLangLabel,
     switchLang,
   }
