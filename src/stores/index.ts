@@ -15,4 +15,5 @@ pinia.use(
 export default pinia
 
 export * from './counter'
+export * from './tabbar'
 export * from './user'
