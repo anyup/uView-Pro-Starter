@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useLocale, useTheme } from 'uview-pro'
 import { computed, ref } from 'vue'
+import { useLang } from '@/hooks'
 
 const {
   getDarkMode,
@@ -10,7 +11,8 @@ const {
   getAvailableThemes,
 } = useTheme()
 const uToastRef = ref()
-const { setLocale, currentLocale, locales: availableLocales } = useLocale()
+const { currentLocale, locales: availableLocales } = useLocale()
+const { switchLang, getLangLabel, currentLangLabel } = useLang()
 
 const showThemePicker = ref(false)
 const showLocalePicker = ref(false)
@@ -35,17 +37,9 @@ const themes = computed(() => {
 const locales = computed(() => {
   return availableLocales.value.map(locale => ({
     name: locale.name,
-    label: getLocaleLabel(locale.name),
+    label: getLangLabel(locale.name),
   }))
 })
-
-function getLocaleLabel(localeName: string) {
-  if (localeName === 'zh-CN')
-    return '简体中文'
-  if (localeName === 'en-US')
-    return 'English'
-  return localeName
-}
 
 // 当前主题名称
 const currentTheme = computed(() => {
@@ -62,12 +56,12 @@ function handleDarkModeChange(value: boolean) {
 function selectTheme(themeName: string) {
   setTheme(themeName)
   showThemePicker.value = false
-  showToast(`已切换到主题「${themes.value.find(t => t.name === themeName)?.label}」`)
+  showToast(`已切换到主题「${currentThemeValue.value?.label}」`)
 }
 function selectLocale(localeName: string) {
-  setLocale(localeName)
+  switchLang(localeName)
   showLocalePicker.value = false
-  showToast(`已切换到语言「${getLocaleLabel(localeName)}」`)
+  showToast(`已切换到语言「${currentLangLabel.value}」`)
 }
 
 // 清除缓存
@@ -147,7 +141,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
               多语言
             </view>
             <view class="setting-item__value" @click="showLocalePicker = true">
-              {{ getLocaleLabel(currentLocale.name) }}
+              {{ currentLangLabel }}
               <u-icon name="arrow-right" color="#c0c4cc" size="28" />
             </view>
           </view>
@@ -189,8 +183,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
           <view class="theme-picker__body">
             <view
               v-for="theme in themes" :key="theme.name" class="theme-item"
-              :class="{ 'theme-item--active': currentTheme === theme.name }"
-              @click="selectTheme(theme.name)"
+              :class="{ 'theme-item--active': currentTheme === theme.name }" @click="selectTheme(theme.name)"
             >
               <view class="theme-item__color" :style="{ background: theme.color }" />
               <view class="theme-item__name">
@@ -217,8 +210,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
           <view class="theme-picker__body">
             <view
               v-for="locale in locales" :key="locale.name" class="theme-item"
-              :class="{ 'theme-item--active': currentLocale.name === locale.name }"
-              @click="selectLocale(locale.name)"
+              :class="{ 'theme-item--active': currentLocale.name === locale.name }" @click="selectLocale(locale.name)"
             >
               <view class="theme-item__name">
                 {{ locale.label }}
