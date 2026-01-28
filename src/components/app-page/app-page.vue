@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import type { TabbarItem } from 'uview-pro/types/global'
 import type { PropType } from 'vue'
 import { $u } from 'uview-pro'
-import { computed, reactive, ref } from 'vue'
+import { reactive } from 'vue'
 
 defineProps({
   navTitle: {
@@ -36,26 +35,6 @@ const background = reactive({
   // 渐变色
   backgroundImage: 'linear-gradient(90deg, var(--u-type-primary-dark), var(--u-type-primary-disabled))',
 })
-
-const current = ref<number>(0)
-
-// 定义响应式数据
-const tabbarList = computed<TabbarItem[]>(() => {
-  return [
-    {
-      text: '首页',
-      iconPath: 'home',
-      selectedIconPath: 'home-fill',
-      pagePath: '/pages/home/home',
-    },
-    {
-      text: '关于',
-      iconPath: 'account',
-      selectedIconPath: 'account-fill',
-      pagePath: '/pages/about/about',
-    },
-  ]
-})
 </script>
 
 <template>
@@ -67,10 +46,10 @@ const tabbarList = computed<TabbarItem[]>(() => {
       back-icon-color="#ffffff"
     />
     <!-- #endif -->
-
-    <slot />
-
-    <u-tabbar v-if="showTabbar" v-model="current" :list="tabbarList" :active-color="$u.color.primary" />
+    <u-transition name="slide-left" :appear="true">
+      <slot />
+    </u-transition>
+    <app-tabbar v-if="showTabbar" />
   </view>
 </template>
 
