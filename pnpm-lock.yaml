@@ -66,8 +66,8 @@ importers:
         specifier: 3.2.1
         version: 3.2.1(pinia@2.2.4(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3)))
       uview-pro:
-        specifier: ^0.5.3
-        version: 0.5.3
+        specifier: ^0.5.4
+        version: 0.5.4
       vue:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.9.3)
@@ -4719,8 +4719,8 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
-  uview-pro@0.5.3:
-    resolution: {integrity: sha512-XzydIcSdrRlBu4SXlmAlYHXLnMmmWAryXNRrVrk3Ro4HVv+SGLWgsrKgdEjZqdiFy1bJK6fJRbaoRp4lynbvQw==}
+  uview-pro@0.5.4:
+    resolution: {integrity: sha512-pTushtl/0uhfXwDT7F4+bfSs4RLBaY0yr8P7GjDsBu2vx7hx49gJdLJLKOfktZPknBWv3ppBeAXzS9wG07C5FQ==}
     engines: {HBuilderX: ^4.07, uni-app: ^4.07, uni-app-x: ''}
 
   v8-to-istanbul@8.1.1:
@@ -10982,7 +10982,7 @@ snapshots:
 
   utils-merge@1.0.1: {}
 
-  uview-pro@0.5.3: {}
+  uview-pro@0.5.4: {}
 
   v8-to-istanbul@8.1.1:
     dependencies:
