@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const uToastRef = ref()
 
 // 快速开始步骤
@@ -100,7 +102,7 @@ function copyLink(url: string) {
   uni.setClipboardData({
     data: url,
     success: () => {
-      showToast('链接已复制，请打开浏览器粘贴访问')
+      showToast(t('common.copySuccess'))
     },
   })
   // #endif
@@ -116,13 +118,13 @@ function showToast(title: string) {
 </script>
 
 <template>
-  <app-page nav-title="使用指南">
+  <app-page :nav-title="$t('about.guidePage.title')">
     <view class="guide-page">
       <view class="section-card">
         <view class="section-card__header">
           <u-icon name="book" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            快速开始
+            {{ $t('about.guidePage.quickStart') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -151,7 +153,7 @@ function showToast(title: string) {
         <view class="section-card__header">
           <u-icon name="list" size="40" color="var(--u-type-success)" />
           <text class="section-card__title">
-            学习资源
+            {{ $t('about.guidePage.learningResources') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -183,7 +185,7 @@ function showToast(title: string) {
         <view class="section-card__header">
           <u-icon name="lightbulb" size="40" color="var(--u-type-warning)" />
           <text class="section-card__title">
-            最佳实践
+            {{ $t('about.guidePage.bestPractices') }}
           </text>
         </view>
         <view class="section-card__body">

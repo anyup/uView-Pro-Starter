@@ -80,18 +80,18 @@ function getAvatarUrl(github: string) {
 </script>
 
 <template>
-  <app-page nav-title="贡献者">
+  <app-page :nav-title="$t('about.contributorsPage.title')">
     <view class="contributors-page">
       <view class="section-card">
         <view class="section-card__header">
           <u-icon name="man-add" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            贡献者列表
+            {{ $t('about.contributorsPage.title') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="contributors-intro">
-            <text>感谢所有为 uView Pro 做出贡献的开发者们！你们的支持让这个项目变得更好。</text>
+            <text>{{ $t('about.contributorsPage.intro') }}</text>
           </view>
         </view>
       </view>
@@ -100,7 +100,7 @@ function getAvatarUrl(github: string) {
         <view class="section-card__header">
           <u-icon name="star" size="40" color="var(--u-type-warning)" />
           <text class="section-card__title">
-            活跃贡献者
+            {{ $t('about.contributorsPage.activeContributors') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -127,7 +127,7 @@ function getAvatarUrl(github: string) {
         <view class="section-card__header">
           <u-icon name="heart" size="40" color="var(--u-type-error)" />
           <text class="section-card__title">
-            如何贡献
+            {{ $t('about.contributorsPage.howToContribute') }}
           </text>
         </view>
         <view class="section-card__body">

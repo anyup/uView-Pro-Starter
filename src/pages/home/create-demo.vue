@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { $u } from 'uview-pro'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 脚手架特性
 const features = [
@@ -106,25 +109,25 @@ function copyCommand(command: string) {
   uni.setClipboardData({
     data: command,
     success: () => {
-      $u.toast('命令已复制到剪贴板')
+      $u.toast(t('common.copyCommandSuccess'))
     },
   })
 }
 </script>
 
 <template>
-  <app-page nav-title="脚手架" show-nav-back>
+  <app-page :nav-title="$t('demo.create.title')" show-nav-back>
     <view class="app-container">
       <!-- 标题介绍 -->
       <view class="intro-section">
-        <u-text text="create-uni&unibest脚手架" size="32rpx" bold />
-        <u-text text="快速创建uni-app项目的脚手架工具" size="26rpx" bold />
+        <u-text :text="$t('demo.create.subtitle')" size="32rpx" bold />
+        <u-text :text="$t('demo.create.subtitleDesc')" size="26rpx" bold />
         <u-text text="v1.0.0" size="24rpx" color="primary" />
       </view>
 
       <!-- 特性介绍 -->
       <view class="section">
-        <u-text text="核心特性" size="28rpx" bold />
+        <u-text :text="$t('demo.create.coreFeatures')" size="28rpx" bold />
         <u-gap />
         <view class="features-grid">
           <view v-for="(feature, index) in features" :key="index" class="feature-card">
@@ -137,7 +140,7 @@ function copyCommand(command: string) {
 
       <!-- 安装使用 -->
       <view class="section">
-        <u-text text="安装使用" size="28rpx" bold />
+        <u-text :text="$t('demo.create.installAndUse')" size="28rpx" bold />
         <u-gap />
         <u-card :show-head="false" margin="0">
           <view class="install-steps">
@@ -160,7 +163,7 @@ function copyCommand(command: string) {
 
       <!-- 支持平台 -->
       <view class="section">
-        <u-text text="支持平台" size="28rpx" bold />
+        <u-text :text="$t('demo.create.supportedPlatforms')" size="28rpx" bold />
         <u-gap />
         <view class="platforms-grid">
           <view v-for="(platform, index) in platforms" :key="index" class="platform-card">
@@ -173,7 +176,7 @@ function copyCommand(command: string) {
 
       <!-- 开发命令 -->
       <view class="section">
-        <u-text text="常用命令" size="28rpx" bold />
+        <u-text :text="$t('demo.create.commonCommands')" size="28rpx" bold />
         <u-gap />
         <u-card :show-head="false" margin="0">
           <view class="commands-list">
@@ -190,7 +193,7 @@ function copyCommand(command: string) {
 
       <!-- 项目结构 -->
       <view class="section">
-        <u-text text="项目结构" size="28rpx" bold />
+        <u-text :text="$t('demo.create.projectStructure')" size="28rpx" bold />
         <u-gap />
         <u-card :show-head="false" margin="0">
           <view class="structure-tree">
@@ -199,27 +202,27 @@ function copyCommand(command: string) {
             </view>
             <view class="tree-item sub">
               <u-text text="├── src/" size="24rpx" />
-              <u-text text="--项目源码目录" size="22rpx" />
+              <u-text :text="$t('demo.create.structure.srcDir')" size="22rpx" />
             </view>
             <view class="tree-item sub">
               <u-text text="├── pages.json" size="24rpx" />
-              <u-text text="--页面路由配置" size="22rpx" />
+              <u-text :text="$t('demo.create.structure.pagesConfig')" size="22rpx" />
             </view>
             <view class="tree-item sub">
               <u-text text="├── manifest.json" size="24rpx" />
-              <u-text text="--应用配置" size="22rpx" />
+              <u-text :text="$t('demo.create.structure.appConfig')" size="22rpx" />
             </view>
             <view class="tree-item sub">
               <u-text text="├── package.json" size="24rpx" />
-              <u-text text="--项目依赖配置" size="22rpx" />
+              <u-text :text="$t('demo.create.structure.depsConfig')" size="22rpx" />
             </view>
             <view class="tree-item sub">
               <u-text text="├── tsconfig.json" size="24rpx" />
-              <u-text text="--TypeScript配置" size="22rpx" />
+              <u-text :text="$t('demo.create.structure.tsConfig')" size="22rpx" />
             </view>
             <view class="tree-item sub">
               <u-text text="└── vite.config.ts" size="24rpx" />
-              <u-text text="--Vite构建配置" size="22rpx" />
+              <u-text :text="$t('demo.create.structure.viteConfig')" size="22rpx" />
             </view>
           </view>
         </u-card>

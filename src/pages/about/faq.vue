@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const uToastRef = ref()
 
 // 展开的项
@@ -51,7 +53,7 @@ function copyLink(url: string) {
   uni.setClipboardData({
     data: url,
     success: () => {
-      showToast('链接已复制，请打开浏览器粘贴访问')
+      showToast(t('common.copySuccess'))
     },
   })
   // #endif
@@ -94,13 +96,13 @@ function showToast(title: string) {
 </script>
 
 <template>
-  <app-page nav-title="常见问题">
+  <app-page :nav-title="$t('about.faqPage.title')">
     <view class="faq-page">
       <view class="section-card">
         <view class="section-card__header">
           <u-icon name="question-circle" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            常见问题
+            {{ $t('about.faqPage.title') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -118,25 +120,25 @@ function showToast(title: string) {
         <view class="section-card__header">
           <u-icon name="chat" size="40" color="var(--u-type-success)" />
           <text class="section-card__title">
-            需要帮助？
+            {{ $t('about.faqPage.needHelp') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="help-text">
-            <text>如果这里没有找到您想要的答案，可以通过以下方式联系我们：</text>
+            <text>{{ $t('about.faqPage.helpText') }}</text>
           </view>
           <view class="help-links">
             <view class="help-link" @click="copyLink('https://uviewpro.cn')">
               <u-icon name="chrome-circle-fill" size="32" color="var(--u-type-primary)" />
-              <text>访问官网文档：https://uviewpro.cn</text>
+              <text>{{ $t('about.faqPage.visitWebsite') }}: https://uviewpro.cn</text>
             </view>
             <view class="help-link" @click="copyLink('https://github.com/anyup/uview-pro')">
               <u-icon name="github-circle-fill" size="32" color="var(--u-type-info)" />
-              <text>访问 GitHub 仓库：https://github.com/anyup/uview-pro</text>
+              <text>{{ $t('about.faqPage.visitGithub') }}: https://github.com/anyup/uview-pro</text>
             </view>
             <view class="help-link" @click="preview('weixin-chat-cl')">
               <u-icon name="chat" size="32" color="var(--u-type-success)" />
-              <text>加入交流群</text>
+              <text>{{ $t('about.faqPage.joinGroup') }}</text>
             </view>
           </view>
         </view>

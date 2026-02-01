@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { $u } from 'uview-pro'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 响应数据
 const responseData = ref<any>(null)
@@ -23,11 +26,11 @@ async function fetchData() {
     })
 
     responseData.value = result
-    $u.toast('请求成功')
+    $u.toast(t('demo.http.requestSuccess'))
   }
   catch (err: any) {
-    error.value = err.message || '请求失败'
-    $u.toast('请求失败', 'error')
+    error.value = err.message || t('demo.http.errorInfo')
+    $u.toast(t('demo.http.errorInfo'), 'error')
   }
   finally {
     loading.value = false
@@ -55,11 +58,11 @@ async function postData() {
     })
 
     responseData.value = result
-    $u.toast('POST请求成功')
+    $u.toast(t('demo.http.postRequest') + t('demo.http.requestSuccess'))
   }
   catch (err: any) {
-    error.value = err.message || '请求失败'
-    $u.toast('请求失败', 'error')
+    error.value = err.message || t('demo.http.errorInfo')
+    $u.toast(t('demo.http.errorInfo'), 'error')
   }
   finally {
     loading.value = false
@@ -86,11 +89,11 @@ async function concurrentRequests() {
       comments: results[2],
     }
 
-    $u.toast('并发请求成功')
+    $u.toast(t('demo.http.concurrentRequests') + t('demo.http.requestSuccess'))
   }
   catch (err: any) {
-    error.value = err.message || '并发请求失败'
-    $u.toast('并发请求失败', 'error')
+    error.value = err.message || t('demo.http.errorInfo')
+    $u.toast(t('demo.http.errorInfo'), 'error')
   }
   finally {
     loading.value = false
@@ -105,11 +108,11 @@ async function uploadFile() {
     responseData.value = null
 
     // 这里只是演示，实际需要选择文件
-    $u.toast('请选择文件上传', 'error')
+    $u.toast(t('demo.http.uploadToServer'), 'error')
   }
   catch (err: any) {
-    error.value = err.message || '上传失败'
-    $u.toast('上传失败', 'error')
+    error.value = err.message || t('demo.http.errorInfo')
+    $u.toast(t('demo.http.errorInfo'), 'error')
   }
   finally {
     loading.value = false
@@ -214,25 +217,25 @@ const configExamples = [
 </script>
 
 <template>
-  <app-page nav-title="uni-http网络请求" show-nav-back>
+  <app-page :nav-title="$t('demo.http.title')" show-nav-back>
     <view class="app-container">
       <!-- 标题介绍 -->
       <view>
-        <u-text text="uni-http 网络请求演示" size="32rpx" bold />
+        <u-text :text="$t('demo.http.intro')" size="32rpx" bold />
         <u-gap />
-        <u-text text="基于uni.request的HTTP请求库，支持拦截器、配置化等特性" size="26rpx" />
+        <u-text :text="$t('demo.http.introDesc')" size="26rpx" />
       </view>
 
       <!-- API演示 -->
       <view class="section">
-        <u-text text="API 请求演示" size="28rpx" bold />
+        <u-text :text="$t('demo.http.apiDemo')" size="28rpx" bold />
         <u-gap />
         <view class="api-grid">
           <u-card v-for="(api, index) in apiExamples" :key="index" :title="api.title" :border-radius="0" margin="0">
             <u-text :text="api.desc" size="24rpx" />
             <u-gap />
             <u-button type="primary" size="mini" :loading="loading" @click="api.action">
-              {{ api.method }}请求
+              {{ api.method }}{{ $t('demo.http.getRequest') }}
             </u-button>
           </u-card>
         </view>
@@ -240,16 +243,16 @@ const configExamples = [
 
       <!-- 响应结果 -->
       <view v-if="responseData || error" class="section">
-        <u-text text="响应结果" size="28rpx" bold />
+        <u-text :text="$t('demo.http.responseResult')" size="28rpx" bold />
         <u-gap />
-        <u-card :title="error ? '错误信息' : '成功响应'" :border-radius="0" margin="0">
+        <u-card :title="error ? $t('demo.http.errorInfo') : $t('demo.http.successResponse')" :border-radius="0" margin="0">
           <view v-if="error" class="error-content">
             <u-icon name="info-circle" color="error" size="32rpx" />
             <u-text :text="error" color="error" />
           </view>
 
           <view v-else>
-            <u-text text="请求成功，响应数据：" type="success" />
+            <u-text :text="$t('demo.http.requestSuccess')" type="success" />
             <view class="json-app-container">
               <u-text :text="JSON.stringify(responseData, null, 2)" size="22rpx" custom-class="code-text" />
             </view>
@@ -259,7 +262,7 @@ const configExamples = [
 
       <!-- 配置示例 -->
       <view class="section">
-        <u-text text="配置示例" size="28rpx" bold />
+        <u-text :text="$t('demo.http.configExample')" size="28rpx" bold />
         <u-gap />
         <view class="config-list">
           <u-card
@@ -275,7 +278,7 @@ const configExamples = [
 
       <!-- 特性说明 -->
       <view class="section">
-        <u-text text="核心特性" size="28rpx" bold />
+        <u-text :text="$t('demo.http.coreFeatures')" size="28rpx" bold />
         <u-gap />
         <u-card :border-radius="0" margin="0" :show-head="false" :show-foot="false">
           <view class="feature-list">

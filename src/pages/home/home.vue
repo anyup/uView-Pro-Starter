@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { ColorType } from 'uview-pro/types/global'
 import { $u } from 'uview-pro'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 项目统计信息
 const projectStats = {
@@ -87,7 +90,7 @@ function navigateToFeature(url: string, _title: string) {
       // 跳转成功
     },
     fail: (err) => {
-      $u.toast(`跳转失败: ${err.errMsg}`, 'error')
+      $u.toast(`${t('common.jumpFailed')}: ${err.errMsg}`, 'error')
     },
   })
 }
@@ -101,7 +104,7 @@ function goToUrl(url: string) {
   uni.setClipboardData({
     data: url,
     success: () => {
-      $u.toast('链接已复制，请打开浏览器粘贴访问')
+      $u.toast(t('common.copySuccess'))
     },
   })
   // #endif
@@ -109,27 +112,27 @@ function goToUrl(url: string) {
 </script>
 
 <template>
-  <app-page nav-title="首页" show-tabbar>
+  <app-page :nav-title="$t('common.home')" show-tabbar>
     <view class="app-container">
       <!-- 欢迎区域 -->
       <view class="hero-section">
         <view class="hero-content">
           <u-text :text="$t('common.appName')" size="48rpx" bold color="var(--u-white-color)" />
-          <u-text text="基于uni-app + uView Pro的企业级快速启动项目" size="26rpx" color="var(--u-white-color)" />
-          <u-text text="Vue3 + TypeScript + 最佳实践" size="24rpx" color="var(--u-content-color)" custom-class="hero-badge" />
+          <u-text :text="$t('home.heroSubtitle')" size="26rpx" color="var(--u-white-color)" />
+          <u-text :text="$t('home.heroBadge')" size="24rpx" color="var(--u-content-color)" custom-class="hero-badge" />
         </view>
         <view class="hero-stats">
           <view class="stat-item">
             <u-text :text="projectStats.components" size="36rpx" bold color="var(--u-white-color)" />
-            <u-text text="组件" size="24rpx" color="var(--u-white-color)" />
+            <u-text :text="$t('home.statsComponents')" size="24rpx" color="var(--u-white-color)" />
           </view>
           <view class="stat-item">
             <u-text :text="projectStats.tools" size="36rpx" bold color="var(--u-white-color)" />
-            <u-text text="工具" size="24rpx" color="var(--u-white-color)" />
+            <u-text :text="$t('home.statsTools')" size="24rpx" color="var(--u-white-color)" />
           </view>
           <view class="stat-item">
             <u-text :text="projectStats.templates" size="36rpx" bold color="var(--u-white-color)" />
-            <u-text text="模板" size="24rpx" color="var(--u-white-color)" />
+            <u-text :text="$t('home.statsTemplates')" size="24rpx" color="var(--u-white-color)" />
           </view>
         </view>
       </view>
@@ -139,7 +142,7 @@ function goToUrl(url: string) {
         <view class="section-card__header">
           <u-icon name="star" size="40" color="var(--u-type-success)" />
           <text class="section-card__title">
-            项目特性
+            {{ $t('home.projectFeatures') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -176,7 +179,7 @@ function goToUrl(url: string) {
         <view class="section-card__header">
           <u-icon name="grid" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            功能演示
+            {{ $t('home.featureDemo') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -195,24 +198,24 @@ function goToUrl(url: string) {
         <view class="section-card__header">
           <u-icon name="play-circle" size="40" color="var(--u-type-warning)" />
           <text class="section-card__title">
-            快速开始
+            {{ $t('home.quickStart') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="quick-start-content">
             <view class="quick-start-text">
-              开始探索uView Pro Starter的功能吧！
+              {{ $t('home.startExplore') }}
             </view>
             <view class="quick-start-desc">
-              点击上方功能卡片，体验各种特性演示
+              {{ $t('home.clickToExperience') }}
             </view>
           </view>
           <view class="quick-start-actions">
             <u-button type="primary" @click="goToUrl('http://uviewpro.cn')">
-              查看uView Pro文档
+              {{ $t('home.viewDocs') }}
             </u-button>
             <u-button type="success" @click="goToUrl('http://h5.uviewpro.cn')">
-              查看组件库演示
+              {{ $t('home.viewComponents') }}
             </u-button>
           </view>
         </view>
@@ -594,10 +597,7 @@ function goToUrl(url: string) {
 .quick-start-actions {
   padding: 24rpx 32rpx;
   display: flex;
+  flex-direction: column;
   gap: 16rpx;
-
-  :deep(.u-button) {
-    flex: 1;
-  }
 }
 </style>

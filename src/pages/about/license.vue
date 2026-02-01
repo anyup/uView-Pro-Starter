@@ -1,14 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <app-page nav-title="开源协议">
+  <app-page :nav-title="$t('about.licensePage.title')">
     <view class="license-page">
       <view class="license-header">
         <view class="license-header__title">
-          MIT License
+          {{ $t('about.licensePage.licenseTitle') }}
         </view>
         <view class="license-header__subtitle">
-          Copyright (c) {{ new Date().getFullYear() }} uviewpro.cn
+          {{ $t('about.licensePage.copyright', { year: new Date().getFullYear() }) }}
         </view>
       </view>
 
@@ -58,14 +58,13 @@
         <view class="section-card__header">
           <u-icon name="info-circle" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            协议说明
+            {{ $t('about.licensePage.licenseDesc') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="info-text">
             <text>
-              MIT License
-              是一个宽松的开源协议，允许您自由使用、修改、分发本软件，包括商业用途。使用本软件时，请保留版权声明和许可声明。
+              {{ $t('about.licensePage.licenseText') }}
             </text>
           </view>
         </view>

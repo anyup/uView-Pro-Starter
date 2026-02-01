@@ -1,22 +1,22 @@
 <script setup lang="ts"></script>
 
 <template>
-  <app-page nav-title="关于我">
+  <app-page :nav-title="$t('about.aboutMePage.title')">
     <view class="about-me-page">
       <view class="section-card">
         <view class="section-card__header">
           <u-icon name="account" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            关于我
+            {{ $t('about.aboutMePage.title') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="about-text">
             <text class="about-text__highlight">
-              "前端梦工厂"
+              {{ $t('about.aboutMePage.highlight') }}
             </text>
             <text>
-              ，一名前端开发工程师，致力于分享各种前端技术最佳解决方案。关注我，让我们一起逐梦前端！
+              {{ $t('about.aboutMePage.highlightText') }}
             </text>
           </view>
         </view>
@@ -26,13 +26,13 @@
         <view class="section-card__header">
           <u-icon name="chat" size="40" color="var(--u-type-success)" />
           <text class="section-card__title">
-            联系方式
+            {{ $t('about.aboutMePage.contact') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="contact-item">
             <view class="contact-item__label">
-              微信号
+              {{ $t('about.aboutMePage.wechat') }}
             </view>
             <view class="contact-item__value">
               anyupxing
@@ -40,10 +40,10 @@
           </view>
           <view class="contact-item">
             <view class="contact-item__label">
-              公众号
+              {{ $t('about.aboutMePage.officialAccount') }}
             </view>
             <view class="contact-item__value">
-              前端梦工厂
+              {{ $t('about.aboutMePage.accountName') }}
             </view>
           </view>
         </view>
@@ -53,14 +53,13 @@
         <view class="section-card__header">
           <u-icon name="star" size="40" color="var(--u-type-warning)" />
           <text class="section-card__title">
-            个人简介
+            {{ $t('about.aboutMePage.intro') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="intro-text">
             <text>
-              专注于前端开发领域，拥有丰富的跨平台开发经验。致力于打造高质量、易用的 UI
-              组件库，帮助开发者提升开发效率。
+              {{ $t('about.aboutMePage.introText') }}
             </text>
           </view>
         </view>

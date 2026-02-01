@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const uToastRef = ref()
 
 // 功能菜单列表
@@ -156,7 +158,7 @@ function copyLink(url: string) {
   uni.setClipboardData({
     data: url,
     success: () => {
-      showToast('链接已复制，请打开浏览器粘贴访问')
+      showToast(t('common.copySuccess'))
     },
   })
   // #endif
@@ -173,7 +175,7 @@ function showToast(title: string) {
 </script>
 
 <template>
-  <app-page nav-title="关于" show-tabbar>
+  <app-page :nav-title="$t('about.title')" show-tabbar>
     <view class="about-page">
       <!-- 用户信息卡片 -->
       <view class="hero-card" @click="navigateTo('/pages/about/about-me')">
@@ -198,10 +200,10 @@ function showToast(title: string) {
               <text class="hero-info__desc-icon">
                 💬
               </text>
-              <text>微信号：anyupxing</text>
+              <text>{{ $t('about.wechatId') }}</text>
             </view>
             <view class="hero-info__tagline">
-              高质量跨平台 UI 组件库
+              {{ $t('about.tagline') }}
             </view>
           </view>
           <view class="hero-arrow">
@@ -215,7 +217,7 @@ function showToast(title: string) {
         <view class="section-card__header">
           <u-icon custom-prefix="custom-icon" name="grid" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            功能入口
+            {{ $t('about.featureEntry') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -245,7 +247,7 @@ function showToast(title: string) {
         <view class="section-card__header">
           <u-icon name="chat" size="40" color="var(--u-type-success)" />
           <text class="section-card__title">
-            交流反馈
+            {{ $t('about.communication') }}
           </text>
         </view>
         <view class="section-card__body">
@@ -280,7 +282,7 @@ function showToast(title: string) {
         <view class="section-card__header">
           <u-icon name="moments" size="40" color="var(--u-type-warning)" />
           <text class="section-card__title">
-            其他信息
+            {{ $t('about.otherInfo') }}
           </text>
         </view>
         <view class="section-card__body">

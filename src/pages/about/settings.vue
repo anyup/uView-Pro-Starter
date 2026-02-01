@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { useTheme } from 'uview-pro'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useLang } from '@/composables'
+
+const { t } = useI18n()
 
 const {
   getDarkMode,
@@ -41,34 +44,34 @@ const currentTheme = computed(() => {
 // 处理深色模式切换
 function handleDarkModeChange(value: boolean) {
   setDarkMode(value ? 'dark' : 'light')
-  showToast(value ? '已开启深色模式' : '已关闭深色模式')
+  showToast(value ? t('about.settingsPage.darkModeEnabled') : t('about.settingsPage.darkModeDisabled'))
 }
 
 // 选择主题
 function selectTheme(themeName: string) {
   setTheme(themeName)
   showThemePicker.value = false
-  showToast(`已切换到主题「${currentThemeValue.value?.label}」`)
+  showToast(t('about.settingsPage.themeSwitched', { theme: currentThemeValue.value?.label || themeName }))
 }
 function selectLocale(localeName: string) {
   switchLang(localeName)
   showLocalePicker.value = false
-  showToast(`已切换到语言「${currentLangLabel.value}」`)
+  showToast(t('about.settingsPage.langSwitched', { lang: currentLangLabel.value }))
 }
 
 // 清除缓存
 function handleClearCache() {
   uni.showModal({
-    title: '提示',
-    content: '确定要清除所有缓存数据吗？',
+    title: t('about.settingsPage.clearCacheTitle'),
+    content: t('about.settingsPage.clearCacheContent'),
     success: (res) => {
       if (res.confirm) {
         try {
           uni.clearStorageSync()
-          showToast('缓存已清除')
+          showToast(t('about.settingsPage.cacheCleared'))
         }
         catch {
-          showToast('清除缓存失败', 'error')
+          showToast(t('about.settingsPage.clearCacheFailed'), 'error')
         }
       }
     },
@@ -92,25 +95,25 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
 </script>
 
 <template>
-  <app-page nav-title="设置">
+  <app-page :nav-title="$t('about.settingsPage.title')">
     <view class="settings-page">
       <view class="section-card">
         <view class="section-card__header">
           <u-icon name="setting" size="40" color="var(--u-type-primary)" />
           <text class="section-card__title">
-            主题设置
+            {{ $t('about.settingsPage.themeSettings') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="setting-item">
             <view class="setting-item__label">
-              深色模式
+              {{ $t('about.settingsPage.darkMode') }}
             </view>
             <u-switch v-model="darkModeEnabled" @change="handleDarkModeChange" />
           </view>
           <view class="setting-item">
             <view class="setting-item__label">
-              主题颜色
+              {{ $t('about.settingsPage.themeColor') }}
             </view>
             <view class="setting-item__value" @click="showThemePicker = true">
               {{ currentThemeValue?.label || currentTheme }}
@@ -124,13 +127,13 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
         <view class="section-card__header">
           <u-icon name="info-circle" size="40" color="var(--u-type-success)" />
           <text class="section-card__title">
-            应用设置
+            {{ $t('about.settingsPage.appSettings') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="setting-item">
             <view class="setting-item__label">
-              多语言
+              {{ $t('about.settingsPage.language') }}
             </view>
             <view class="setting-item__value" @click="showLocalePicker = true">
               {{ currentLangLabel }}
@@ -139,7 +142,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
           </view>
           <view class="setting-item" @click="handleClearCache">
             <view class="setting-item__label">
-              清除缓存
+              {{ $t('about.settingsPage.clearCache') }}
             </view>
             <u-icon name="arrow-right" color="#c0c4cc" size="32" />
           </view>
@@ -150,13 +153,13 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
         <view class="section-card__header">
           <u-icon name="more-circle" size="40" color="var(--u-type-warning)" />
           <text class="section-card__title">
-            其他
+            {{ $t('about.settingsPage.other') }}
           </text>
         </view>
         <view class="section-card__body">
           <view class="setting-item" @click="navigateTo('/pages/about/faq')">
             <view class="setting-item__label">
-              常见问题
+              {{ $t('about.faq') }}
             </view>
             <u-icon name="arrow-right" color="#c0c4cc" size="32" />
           </view>
@@ -168,7 +171,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
         <view class="theme-picker">
           <view class="theme-picker__header">
             <text class="theme-picker__title">
-              选择主题
+              {{ $t('about.settingsPage.selectTheme') }}
             </text>
             <u-icon name="close" size="40" @click="showThemePicker = false" />
           </view>
@@ -195,7 +198,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
         <view class="theme-picker">
           <view class="theme-picker__header">
             <text class="theme-picker__title">
-              选择多语言
+              {{ $t('about.settingsPage.selectLanguage') }}
             </text>
             <u-icon name="close" size="40" @click="showLocalePicker = false" />
           </view>

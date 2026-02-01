@@ -3,7 +3,10 @@ import type { DarkMode } from 'uview-pro/types/global'
 import { storeToRefs } from 'pinia'
 import { $u } from 'uview-pro'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useCounterStore, useUserStore } from '@/stores'
+
+const { t } = useI18n()
 
 // 使用现有的counter store
 const counterStore = useCounterStore()
@@ -18,7 +21,7 @@ const inputUserName = ref(userName.value)
 // 计算属性
 const userInfo = computed(() => ({
   name: userName.value,
-  loginStatus: isLoggedIn.value ? '已登录' : '未登录',
+  loginStatus: isLoggedIn.value ? t('demo.pinia.loggedIn') : t('demo.pinia.notLoggedIn'),
   preferences: preferences.value,
 }))
 
@@ -34,54 +37,54 @@ const persistenceData = computed(() => {
 
 function clearData() {
   userStore.clearData()
-  $u.toast('数据已清空')
+  $u.toast(t('demo.pinia.clearData'))
 }
 
 // 计数器操作
 function increment() {
   counterStore.increment()
-  $u.toast(`计数器: ${counterStore.count}`)
+  $u.toast(`${t('demo.pinia.currentCount')}${counterStore.count}`)
 }
 
 function decrement() {
   counterStore.decrement()
-  $u.toast(`计数器: ${counterStore.count}`)
+  $u.toast(`${t('demo.pinia.currentCount')}${counterStore.count}`)
 }
 
 function reset() {
   counterStore.reset()
-  $u.toast('计数器已重置')
+  $u.toast(t('demo.pinia.reset'))
 }
 
 // 用户操作
 function login() {
   if (!inputUserName.value || !inputUserName.value.trim()) {
-    $u.toast('请输入用户名', 'error')
+    $u.toast(t('demo.pinia.enterUsernameFirst'), 'error')
     return
   }
   try {
     userStore.login(inputUserName.value)
-    $u.toast(`欢迎 ${inputUserName.value}`)
+    $u.toast(t('demo.pinia.welcomeUser', { name: inputUserName.value }))
   }
   catch (err: any) {
-    $u.toast(err?.message || '登录失败', 'error')
+    $u.toast(err?.message || t('demo.pinia.login'), 'error')
   }
 }
 
 function logout() {
   userStore.logout()
-  $u.toast('已登出')
+  $u.toast(t('demo.pinia.loggedOut'))
 }
 
 // 偏好设置操作
 function updateTheme(theme: DarkMode) {
   userStore.updateTheme(theme)
-  $u.toast(`主题已切换为 ${theme}`)
+  $u.toast(t('demo.pinia.themeSwitched', { theme }))
 }
 
 function toggleNotifications() {
   userStore.toggleNotifications()
-  $u.toast(`通知${userStore.preferences.notifications ? '已开启' : '已关闭'}`)
+  $u.toast(`通知${userStore.preferences.notifications ? t('demo.pinia.notificationEnabled') : t('demo.pinia.notificationDisabled')}`)
 }
 
 // 功能示例
@@ -120,18 +123,18 @@ const piniaFeatures = [
 </script>
 
 <template>
-  <app-page nav-title="Pinia 持久化演示" show-nav-back>
+  <app-page :nav-title="$t('demo.pinia.title')" show-nav-back>
     <view class="app-container">
       <!-- 标题介绍 -->
       <view class="u-m-b-20">
-        <u-text text="Pinia 状态管理演示" size="32rpx" bold />
+        <u-text :text="$t('demo.pinia.intro')" size="32rpx" bold />
         <u-gap />
-        <u-text text="Vue3官方推荐的状态管理库，支持TypeScript和持久化" size="26rpx" />
+        <u-text :text="$t('demo.pinia.introDesc')" size="26rpx" />
       </view>
 
       <!-- 功能概览 -->
       <view class="section">
-        <u-text text="功能演示" size="28rpx" bold />
+        <u-text :text="$t('demo.pinia.featureDemo')" size="28rpx" bold />
         <u-gap />
         <view class="examples-grid">
           <view v-for="(example, index) in examples" :key="index" class="example-card">
@@ -144,21 +147,21 @@ const piniaFeatures = [
 
       <!-- 计数器演示 -->
       <view class="section">
-        <u-card title="基础计数器" margin="0" border-radius="0" custom-class="counter-card">
+        <u-card :title="$t('demo.pinia.basicCounter')" margin="0" border-radius="0" custom-class="counter-card">
           <view class="counter-display">
-            <u-text text="当前计数:" size="28rpx" bold block align="center" />
+            <u-text :text="$t('demo.pinia.currentCount')" size="28rpx" bold block align="center" />
             <u-text :text="count.toString()" size="48rpx" bold color="primary" />
           </view>
 
           <view class="counter-buttons">
             <u-button type="warning" size="mini" :disabled="count <= 0" @click="decrement">
-              减少
+              {{ $t('demo.pinia.decrease') }}
             </u-button>
             <u-button type="primary" size="mini" @click="increment">
-              增加
+              {{ $t('demo.pinia.increase') }}
             </u-button>
             <u-button type="info" size="mini" @click="reset">
-              重置
+              {{ $t('demo.pinia.reset') }}
             </u-button>
           </view>
         </u-card>
@@ -166,26 +169,26 @@ const piniaFeatures = [
 
       <!-- 用户状态演示 -->
       <view class="section">
-        <u-card title="用户状态管理" margin="0" border-radius="0">
+        <u-card :title="$t('demo.pinia.userStatus')" margin="0" border-radius="0">
           <view class="user-input">
-            <u-input v-model="inputUserName" placeholder="请输入用户名" clearable :border="true" />
+            <u-input v-model="inputUserName" :placeholder="$t('demo.pinia.enterUsername')" clearable :border="true" />
           </view>
 
           <view class="user-status">
-            <u-text text="登录状态：" size="26rpx" />
+            <u-text :text="$t('demo.pinia.loginStatusText')" size="26rpx" />
             <u-text :text="userInfo.loginStatus" :type="isLoggedIn ? 'success' : 'warning'" size="26rpx" bold />
           </view>
           <view v-if="isLoggedIn" class="user-status">
-            <u-text text="当前用户：" size="26rpx" />
+            <u-text :text="$t('demo.pinia.currentUser')" size="26rpx" />
             <u-text :text="userName" type="success" size="26rpx" bold />
           </view>
 
           <view class="user-buttons">
             <u-button type="primary" size="mini" :disabled="isLoggedIn" @click="login">
-              登录
+              {{ $t('demo.pinia.login') }}
             </u-button>
             <u-button type="warning" size="mini" :disabled="!isLoggedIn" @click="logout">
-              登出
+              {{ $t('demo.pinia.logout') }}
             </u-button>
           </view>
         </u-card>
@@ -193,32 +196,32 @@ const piniaFeatures = [
 
       <!-- 偏好设置演示 -->
       <view class="section">
-        <u-card title="偏好设置" margin="0" border-radius="0" custom-class="preferences-card">
+        <u-card :title="$t('demo.pinia.preferences')" margin="0" border-radius="0" custom-class="preferences-card">
           <view class="preference-item">
-            <u-text text="主题:" size="26rpx" />
+            <u-text :text="$t('demo.pinia.theme')" size="26rpx" />
             <view class="theme-buttons">
               <u-button
                 :type="preferences.theme === 'light' ? 'primary' : 'default'" size="mini"
                 @click="updateTheme('light')"
               >
-                浅色
+                {{ $t('demo.pinia.light') }}
               </u-button>
               <u-button
                 :type="preferences.theme === 'dark' ? 'primary' : 'default'" size="mini"
                 @click="updateTheme('dark')"
               >
-                深色
+                {{ $t('demo.pinia.dark') }}
               </u-button>
             </view>
           </view>
 
           <view class="preference-item">
-            <u-text text="通知:" size="26rpx" />
+            <u-text :text="$t('demo.pinia.notification')" size="26rpx" />
             <u-switch v-model="notifications" @change="toggleNotifications" />
           </view>
 
           <view class="preference-item">
-            <u-text text="语言:" size="26rpx" />
+            <u-text :text="$t('demo.pinia.language')" size="26rpx" />
             <view>
               <u-text :text="preferences.language" size="26rpx" type="primary" />
             </view>
@@ -228,18 +231,18 @@ const piniaFeatures = [
 
       <!-- 数据持久化演示 -->
       <view class="section">
-        <u-card title="数据持久化" margin="0" border-radius="0" custom-class="persistence-card">
-          <u-text text="演示数据的保存和恢复功能（使用uni-app的本地存储）" size="24rpx" custom-class="persistence-desc" />
+        <u-card :title="$t('demo.pinia.dataPersistence')" margin="0" border-radius="0" custom-class="persistence-card">
+          <u-text :text="$t('demo.pinia.persistenceDemo')" size="24rpx" custom-class="persistence-desc" />
           <u-gap />
           <view class="persistence-data">
-            <u-text text="当前数据:" size="26rpx" />
+            <u-text :text="$t('demo.pinia.currentData')" size="26rpx" />
             <view class="code-block">
               <u-text :text="persistenceData" size="26rpx" color="primary" custom-class="code-text" />
             </view>
           </view>
           <view class="persistence-buttons">
             <u-button type="warning" size="mini" @click="clearData">
-              清除数据
+              {{ $t('demo.pinia.clearData') }}
             </u-button>
           </view>
         </u-card>
@@ -247,7 +250,7 @@ const piniaFeatures = [
 
       <!-- Pinia特性 -->
       <view class="section">
-        <u-text text="Pinia 特性" size="28rpx" bold />
+        <u-text :text="$t('demo.pinia.piniaFeatures')" size="28rpx" bold />
         <u-gap />
         <u-card margin="0" border-radius="0" :show-head="false" custom-class="features-card">
           <view class="features-list">
