@@ -15,6 +15,7 @@ const currentLocaleName = computed(() => currentLocale.value?.name)
     :current-locale="currentLocaleName"
   >
     <KuRootView />
+    <u-toast global />
   </u-config-provider>
 </template>
 

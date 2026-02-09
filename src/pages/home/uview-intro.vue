@@ -90,7 +90,7 @@ const advantages = computed(() => [
       <view class="section">
         <u-text :text="$t('demo.uviewIntro.quickStart')" size="32rpx" bold />
         <u-gap />
-        <u-card :title="$t('demo.guidePage.steps.install')" border-radius="0" margin="0">
+        <u-card :title="$t('guidePage.steps.install')" border-radius="0" margin="0">
           <view class="code-block">
             <u-text :text="$t('demo.uviewIntro.installCommand')" size="26rpx" color="primary" custom-class="code-text" />
           </view>

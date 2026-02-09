@@ -66,8 +66,8 @@ importers:
         specifier: 3.2.1
         version: 3.2.1(pinia@2.2.4(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3)))
       uview-pro:
-        specifier: ^0.5.4
-        version: 0.5.4
+        specifier: ^0.5.7
+        version: 0.5.7
       vue:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.9.3)
@@ -3078,7 +3078,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global@4.4.0:
     resolution: {integrity: sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==}
@@ -4719,8 +4719,8 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
-  uview-pro@0.5.4:
-    resolution: {integrity: sha512-pTushtl/0uhfXwDT7F4+bfSs4RLBaY0yr8P7GjDsBu2vx7hx49gJdLJLKOfktZPknBWv3ppBeAXzS9wG07C5FQ==}
+  uview-pro@0.5.7:
+    resolution: {integrity: sha512-KrJ1aDhb9vJyTP2xSMhFAkUftu7VBBalap6YHyJHNFXQlqrupsgNLRl9K0HaslMKSlmriSUevp9IHodA0vmBiQ==}
     engines: {HBuilderX: ^4.07, uni-app: ^4.07, uni-app-x: ''}
 
   v8-to-istanbul@8.1.1:
@@ -10982,7 +10982,7 @@ snapshots:
 
   utils-merge@1.0.1: {}
 
-  uview-pro@0.5.4: {}
+  uview-pro@0.5.7: {}
 
   v8-to-istanbul@8.1.1:
     dependencies:
