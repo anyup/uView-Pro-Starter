@@ -32,4 +32,7 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['uview-pro'] : [],
+  },
 })
