@@ -18,6 +18,13 @@
       "autoclose": true,
       "delay": 0
     },
+    "safearea": {
+      "background": "#ffffff",
+      "backgroundDark": "#2f0508",
+      "bottom": {
+        "offset": "none"
+      }
+    },
     "modules": {},
     "distribute": {
       "android": {
