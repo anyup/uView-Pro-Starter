@@ -119,7 +119,7 @@
     "licensePage": {
       "title": "Open Source License",
       "licenseTitle": "MIT License",
-      "copyright": "Copyright (c) {{year}} uviewpro.cn",
+      "copyright": "Copyright (c) {year} uviewpro.cn",
       "licenseDesc": "License Description",
       "licenseText": "MIT License is a permissive open source license that allows you to freely use, modify, and distribute this software, including for commercial purposes. Please retain the copyright notice and license notice when using this software."
     },
@@ -140,8 +140,8 @@
       "selectLanguage": "Select Language",
       "darkModeEnabled": "Dark mode enabled",
       "darkModeDisabled": "Dark mode disabled",
-      "themeSwitched": "Switched to theme '{{theme}}'",
-      "langSwitched": "Switched to language '{{lang}}'"
+      "themeSwitched": "Switched to theme '{theme}'",
+      "langSwitched": "Switched to language '{lang}'"
     }
   },
   "theme": {
@@ -290,9 +290,9 @@
       "currentData": "Current data:",
       "clearData": "Clear Data",
       "piniaFeatures": "Pinia Features",
-      "welcomeUser": "Welcome {{name}}",
+      "welcomeUser": "Welcome {name}",
       "loggedOut": "Logged out",
-      "themeSwitched": "Theme switched to {{theme}}",
+      "themeSwitched": "Theme switched to {theme}",
       "notificationEnabled": "Enabled",
       "notificationDisabled": "Disabled",
       "enterUsernameFirst": "Please enter username first"
