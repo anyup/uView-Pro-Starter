@@ -116,7 +116,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
               {{ $t('about.settingsPage.themeColor') }}
             </view>
             <view class="setting-item__value" @click="showThemePicker = true">
-              {{ currentThemeValue?.label || currentTheme }}
+              {{ $t(`theme.${currentThemeValue?.name}`) || currentThemeValue?.label || currentTheme }}
               <u-icon name="arrow-right" color="#c0c4cc" size="28" />
             </view>
           </view>
@@ -182,7 +182,7 @@ function showToast(title: string, type: 'success' | 'error' = 'success') {
             >
               <view class="theme-item__color" :style="{ background: theme.color }" />
               <view class="theme-item__name">
-                {{ theme.label }}
+                {{ $t(`theme.${theme.name}`) }}
               </view>
               <u-icon
                 v-if="currentTheme === theme.name" name="checkmark-circle" size="32"
