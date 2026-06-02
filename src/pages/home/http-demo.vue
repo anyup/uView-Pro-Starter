@@ -355,4 +355,15 @@ const configExamples = [
   align-items: center;
   gap: 12rpx;
 }
+
+// Pad及宽屏：铺满适配
+@media (min-width: 768px) {
+  .app-container {
+    padding: 48rpx;
+  }
+
+  .api-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>

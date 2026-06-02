@@ -663,4 +663,20 @@ function showToast(title: string) {
       text-align: center;
   }
 }
+
+// Pad及宽屏：6列菜单铺满
+@media (min-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .about-page {
+    padding: 32rpx;
+    gap: 32rpx;
+  }
+
+  .hero-card__content {
+    padding: 56rpx 48rpx;
+  }
+}
 </style>

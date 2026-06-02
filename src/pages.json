@@ -48,7 +48,9 @@
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "@navTxtStyle",
     "navigationBarTitleText": "uView Pro Starter",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "rpxCalcMaxDeviceWidth": 1366,
+    "rpxCalcBaseDeviceWidth": 375
   },
   "tabBar": {
     "color": "@tabFontColor",

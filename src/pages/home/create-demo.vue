@@ -381,4 +381,19 @@ function copyCommand(command: string) {
     }
   }
 }
+
+// Pad及宽屏：铺满适配
+@media (min-width: 768px) {
+  .app-container {
+    padding: 48rpx;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .platforms-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 </style>
