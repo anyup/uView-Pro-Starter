@@ -1,35 +1,42 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useLocale, useTheme } from 'uview-pro'
+import { computed, ref } from 'vue'
+
+const { t } = useLocale()
+const { getDarkMode } = useTheme()
 
 // 当前激活的菜单项
 const activePath = ref('/pages/home/home')
 
-// 导航菜单分组
-const menuGroups = [
+// 深色模式检测
+const isDark = computed(() => getDarkMode() === 'dark')
+
+// 导航菜单分组（使用 i18n key）
+const menuGroups = computed(() => [
   {
-    title: '首页',
+    title: t('sidebar.home'),
     items: [
-      { title: '项目概览', path: '/pages/home/home', icon: 'home' },
-      { title: 'uView Pro 介绍', path: '/pages/home/uview-intro', icon: 'star' },
-      { title: '网络请求', path: '/pages/home/http-demo', icon: 'ie' },
-      { title: 'Pinia 持久化', path: '/pages/home/pinia-demo', icon: 'file-text' },
-      { title: '组件演示', path: '/pages/home/components-demo', icon: 'grid' },
-      { title: '脚手架创建', path: '/pages/home/create-demo', icon: 'integral' },
+      { title: t('sidebar.overview'), path: '/pages/home/home', icon: 'home' },
+      { title: t('sidebar.uviewIntro'), path: '/pages/home/uview-intro', icon: 'star' },
+      { title: t('sidebar.httpDemo'), path: '/pages/home/http-demo', icon: 'ie' },
+      { title: t('sidebar.piniaDemo'), path: '/pages/home/pinia-demo', icon: 'file-text' },
+      { title: t('sidebar.componentsDemo'), path: '/pages/home/components-demo', icon: 'grid' },
+      { title: t('sidebar.createDemo'), path: '/pages/home/create-demo', icon: 'integral' },
     ],
   },
   {
-    title: '关于',
+    title: t('sidebar.about'),
     items: [
-      { title: '关于应用', path: '/pages/about/about', icon: 'info-circle' },
-      { title: '关于我', path: '/pages/about/about-me', icon: 'account' },
-      { title: '开源协议', path: '/pages/about/license', icon: 'file-text' },
-      { title: '贡献者', path: '/pages/about/contributors', icon: 'man-add' },
-      { title: '常见问题', path: '/pages/about/faq', icon: 'warning' },
-      { title: '使用指南', path: '/pages/about/guide', icon: 'bookmark' },
-      { title: '设置', path: '/pages/about/settings', icon: 'setting' },
+      { title: t('sidebar.aboutApp'), path: '/pages/about/about', icon: 'info-circle' },
+      { title: t('sidebar.aboutMe'), path: '/pages/about/about-me', icon: 'account' },
+      { title: t('sidebar.license'), path: '/pages/about/license', icon: 'file-text' },
+      { title: t('sidebar.contributors'), path: '/pages/about/contributors', icon: 'man-add' },
+      { title: t('sidebar.faq'), path: '/pages/about/faq', icon: 'warning' },
+      { title: t('sidebar.guide'), path: '/pages/about/guide', icon: 'bookmark' },
+      { title: t('sidebar.settings'), path: '/pages/about/settings', icon: 'setting' },
     ],
   },
-]
+])
 
 function navigateTo(path: string) {
   activePath.value = path
@@ -38,7 +45,7 @@ function navigateTo(path: string) {
 </script>
 
 <template>
-  <view class="left-window">
+  <view class="left-window" :class="{ 'left-window--dark': isDark }">
     <!-- 应用标题 -->
     <view class="sidebar-header">
       <image class="sidebar-logo" src="/static/logo.png" mode="aspectFit" />
@@ -56,7 +63,7 @@ function navigateTo(path: string) {
           :class="{ 'nav-item--active': activePath === item.path }"
           @click="navigateTo(item.path)"
         >
-          <u-icon :name="item.icon" size="36" :color="activePath === item.path ? '#2979ff' : '#909399'" />
+          <u-icon :name="item.icon" size="36" :color="activePath === item.path ? 'var(--u-type-primary)' : 'var(--u-tips-color)'" />
           <text class="nav-item__text">{{ item.title }}</text>
         </view>
       </view>
@@ -72,8 +79,8 @@ function navigateTo(path: string) {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  background: #f5f7fa;
-  border-right: 1px solid #e4e7ed;
+  background: $u-bg-color;
+  border-right: 1px solid $u-border-color;
   overflow: hidden;
 }
 
@@ -82,8 +89,8 @@ function navigateTo(path: string) {
   display: flex;
   align-items: center;
   gap: 12px;
-  border-bottom: 1px solid #e4e7ed;
-  background: #ffffff;
+  border-bottom: 1px solid $u-border-color;
+  background: $u-bg-white;
 }
 
 .sidebar-logo {
@@ -95,7 +102,7 @@ function navigateTo(path: string) {
 .sidebar-title {
   font-size: 16px;
   font-weight: 700;
-  color: #303133;
+  color: $u-main-color;
   letter-spacing: 0.5px;
 }
 
@@ -112,7 +119,7 @@ function navigateTo(path: string) {
     padding: 8px 20px 4px;
     font-size: 11px;
     font-weight: 600;
-    color: #909399;
+    color: $u-tips-color;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -129,21 +136,21 @@ function navigateTo(path: string) {
   transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(41, 121, 255, 0.08);
+    background: rgba(var(--u-type-primary-rgb, 41, 121, 255), 0.08);
   }
 
   &--active {
-    background: rgba(41, 121, 255, 0.12);
+    background: rgba(var(--u-type-primary-rgb, 41, 121, 255), 0.12);
 
     .nav-item__text {
-      color: #2979ff;
+      color: var(--u-type-primary);
       font-weight: 600;
     }
   }
 
   &__text {
     font-size: 14px;
-    color: #606266;
+    color: $u-content-color;
     transition: color 0.2s ease;
   }
 }

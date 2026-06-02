@@ -30,6 +30,23 @@
     "viewDocs": "查看uView Pro文档",
     "viewComponents": "查看组件库演示"
   },
+  "sidebar": {
+    "home": "首页",
+    "about": "关于",
+    "overview": "项目概览",
+    "uviewIntro": "uView Pro 介绍",
+    "httpDemo": "网络请求",
+    "piniaDemo": "Pinia 持久化",
+    "componentsDemo": "组件演示",
+    "createDemo": "脚手架创建",
+    "aboutApp": "关于应用",
+    "aboutMe": "关于我",
+    "license": "开源协议",
+    "contributors": "贡献者",
+    "faq": "常见问题",
+    "guide": "使用指南",
+    "settings": "设置"
+  },
   "about": {
     "title": "关于我们",
     "version": "版本",
