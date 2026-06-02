@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { $u } from 'uview-pro'
-import { reactive } from 'vue'
+import { onMounted, onUnmounted, reactive, ref } from 'vue'
 
-defineProps({
+const props = defineProps({
   navTitle: {
     type: String,
     default: 'uView Pro',
@@ -35,10 +35,32 @@ const background = reactive({
   // 渐变色
   backgroundImage: 'linear-gradient(90deg, var(--u-type-primary-dark), var(--u-type-primary-disabled))',
 })
+
+// 多窗口模式检测：窗口宽度 >= 768px 时隐藏自定义 tabbar
+const isMultiWindow = ref(false)
+
+function checkWindowWidth() {
+  // #ifdef H5
+  isMultiWindow.value = window.innerWidth >= 768
+  // #endif
+}
+
+onMounted(() => {
+  checkWindowWidth()
+  // #ifdef H5
+  window.addEventListener('resize', checkWindowWidth)
+  // #endif
+})
+
+onUnmounted(() => {
+  // #ifdef H5
+  window.removeEventListener('resize', checkWindowWidth)
+  // #endif
+})
 </script>
 
 <template>
-  <view class="app-page" :class="{ 'has-tabbar': showTabbar }" :style="$u.toStyle(customStyle)">
+  <view class="app-page" :class="{ 'has-tabbar': showTabbar && !isMultiWindow }" :style="$u.toStyle(customStyle)">
     <!-- #ifndef MP-ALIPAY -->
     <u-navbar
       v-if="!hideNav" :is-back="showNavBack && !showTabbar" :title="navTitle" :background="background" :is-fixed="true"
@@ -49,7 +71,7 @@ const background = reactive({
     <u-transition name="slide-left" :appear="true">
       <slot />
     </u-transition>
-    <app-tabbar v-if="showTabbar" />
+    <app-tabbar v-if="showTabbar && !isMultiWindow" />
   </view>
 </template>
 

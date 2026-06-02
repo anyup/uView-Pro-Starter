@@ -69,5 +69,22 @@
   "easycom": {
     "autoscan": true
   },
+  "leftWindow": {
+    "path": "responsive/left-window.vue",
+    "style": {
+      "width": "280px"
+    },
+    "matchMedia": {
+      "minWidth": 768
+    }
+  },
+  "rightWindow": {
+    "style": {
+      "width": "calc(100vw - 280px)"
+    },
+    "matchMedia": {
+      "minWidth": 768
+    }
+  },
   "subPackages": []
 }
