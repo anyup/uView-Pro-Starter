@@ -61,7 +61,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <view class="app-page" :class="{ 'has-tabbar': showTabbar && !isMultiWindow }" :style="$u.toStyle(customStyle)">
+  <view class="app-page" :class="{ 'has-tabbar': showTabbar && !isMultiWindow, 'is-multi-window': isMultiWindow }" :style="$u.toStyle(customStyle)">
     <!-- #ifndef MP-ALIPAY -->
     <!-- 多窗口模式下隐藏 navbar，避免页面切换时闪烁 -->
     <u-navbar
@@ -74,10 +74,11 @@ onUnmounted(() => {
       <text class="multi-window-header__title">{{ navTitle }}</text>
     </view>
     <!-- #endif -->
-    <!-- 多窗口模式下禁用过渡动画，避免切换页面时闪烁 -->
-    <u-transition v-if="isMultiWindow" name="fade" :appear="false">
+    <!-- 多窗口模式下：内容区域独立滚动 -->
+    <scroll-view v-if="isMultiWindow" scroll-y class="multi-window-content">
       <slot />
-    </u-transition>
+    </scroll-view>
+    <!-- 手机端：原有过渡动画 -->
     <u-transition v-else name="slide-left" :appear="true">
       <slot />
     </u-transition>
@@ -89,7 +90,6 @@ onUnmounted(() => {
 .app-page {
     width: 100%;
     min-height: 100vh;
-    // padding-bottom: 30rpx;
     overflow-y: auto;
     background-color: $u-bg-white;
     -webkit-font-smoothing: antialiased;
@@ -103,17 +103,31 @@ onUnmounted(() => {
                 rgba(var(--u-type-warning-rgb, 255, 153, 0), 0.04) 100%);
     }
 
+    // 多窗口模式：固定高度 flex 布局，标题栏不动，内容区滚动
+    &.is-multi-window {
+        height: 100vh;
+        min-height: unset;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .multi-window-header {
+    flex-shrink: 0;
     padding: 16px 24px;
-    background: #ffffff;
-    border-bottom: 1px solid #e4e7ed;
+    background: $u-bg-white;
+    border-bottom: 1px solid $u-border-color;
 
     &__title {
         font-size: 18px;
         font-weight: 700;
-        color: #303133;
+        color: $u-main-color;
     }
+}
+
+.multi-window-content {
+    flex: 1;
+    overflow-y: auto;
 }
 </style>
