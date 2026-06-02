@@ -572,6 +572,43 @@ function goToUrl(url: string) {
   }
 }
 
+// Pad及宽屏：4列卡片铺满
+@media (min-width: 768px) {
+  .project-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .quick-start-actions {
+    flex-direction: row;
+
+    :deep(.u-button) {
+      flex: 1;
+    }
+  }
+
+  .section-card__body {
+    :deep(.u-cell-group) {
+      .u-cell-item {
+        padding: 24rpx 32rpx;
+      }
+    }
+  }
+}
+
+// 超宽屏（iPad Pro横屏等）
+@media (min-width: 1024px) {
+  .hero-section {
+    .hero-content {
+      padding: 80rpx 48rpx;
+    }
+  }
+
+  .app-container {
+    padding: 32rpx;
+    gap: 32rpx;
+  }
+}
+
 // 快速开始内容
 .quick-start-content {
   padding: 24rpx 32rpx 32rpx;

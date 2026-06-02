@@ -465,4 +465,25 @@ const tabList = [
     border-top: 1rpx solid $u-border-color;
 }
 }
+
+// Pad及宽屏适配：内容铺满
+@media (min-width: 768px) {
+  .app-container {
+    padding: 48rpx;
+  }
+
+  .button-row {
+    flex-wrap: wrap;
+  }
+
+  .feedback-buttons {
+    flex-wrap: wrap;
+  }
+
+  .components-list {
+    .component-item {
+      padding: 24rpx 0;
+    }
+  }
+}
 </style>
