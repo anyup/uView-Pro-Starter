@@ -67,10 +67,14 @@ function navigateTo(path: string) {
 <style lang="scss" scoped>
 .left-window {
   height: 100vh;
+  width: 280px;
+  min-width: 280px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   background: #f5f7fa;
   border-right: 1px solid #e4e7ed;
+  overflow: hidden;
 }
 
 .sidebar-header {

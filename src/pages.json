@@ -49,7 +49,7 @@
     "navigationBarTextStyle": "@navTxtStyle",
     "navigationBarTitleText": "uView Pro Starter",
     "navigationStyle": "custom",
-    "rpxCalcMaxDeviceWidth": 1366,
+    "rpxCalcMaxDeviceWidth": 750,
     "rpxCalcBaseDeviceWidth": 375
   },
   "tabBar": {
@@ -72,7 +72,9 @@
   "leftWindow": {
     "path": "responsive/left-window.vue",
     "style": {
-      "width": "280px"
+      "width": "280px",
+      "min-width": "280px",
+      "flex-shrink": "0"
     },
     "matchMedia": {
       "minWidth": 768
