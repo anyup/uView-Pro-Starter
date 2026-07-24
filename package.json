@@ -67,7 +67,7 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-4080720251210001",
     "pinia": "2.2.4",
     "pinia-plugin-persistedstate": "3.2.1",
-    "uview-pro": "^0.5.16",
+    "uview-pro": "^0.6.12",
     "vue": "3.4.21",
     "vue-router": "4.5.1",
     "z-paging": "^2.8.8"
@@ -86,7 +86,6 @@
     "@uni-helper/uni-types": "^1.0.0-alpha.7",
     "@uni-helper/unocss-preset-uni": "^0.2.11",
     "@uni-helper/vite-plugin-uni-components": "^0.2.6",
-    "@uni-ku/root": "^1.4.1",
     "@vue/runtime-core": "3.4.21",
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.39.2",

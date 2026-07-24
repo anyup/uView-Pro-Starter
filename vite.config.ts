@@ -3,8 +3,8 @@ import { fileURLToPath, URL } from 'node:url'
 import Uni from '@uni-helper/plugin-uni'
 import Components from '@uni-helper/vite-plugin-uni-components'
 import { uViewProResolver, ZPagingResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
-import UniRoot from '@uni-ku/root'
 import UnoCSS from 'unocss/vite'
+import { UniRoot } from 'uview-pro/plugins'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -14,7 +14,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    // https://github.com/uni-ku/root
+    // https://github.com/anyup/uview-pro
     UniRoot(),
     // https://uni-helper.js.org/vite-plugin-uni-components
     Components({
