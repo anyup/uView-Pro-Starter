@@ -187,7 +187,9 @@
       "contentMark": "内容标记",
       "lightTips": "轻提示",
       "confirmDialog": "确认对话框",
-      "loadingStatus": "加载状态"
+      "loadingStatus": "加载状态",
+      "select": "选择器",
+      "selector": "选择"
     },
     "create": {
       "title": "脚手架",

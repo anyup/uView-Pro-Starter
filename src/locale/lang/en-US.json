@@ -187,7 +187,9 @@
       "contentMark": "Content mark",
       "lightTips": "Light tips",
       "confirmDialog": "Confirm dialog",
-      "loadingStatus": "Loading status"
+      "loadingStatus": "Loading status",
+      "select": "Selector",
+      "selector": "Select"
     },
     "create": {
       "title": "Scaffold",

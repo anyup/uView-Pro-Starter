@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonType } from 'uview-pro/types/global'
+import type { ButtonType, PickerMode, SelectMode } from 'uview-pro/types/global'
 import { $u, useLocale } from 'uview-pro'
 import { ref } from 'vue'
 
@@ -14,9 +14,32 @@ const radioValue = ref('option1')
 const checkboxValues = ref(['checkbox1'])
 const selectedIndex = ref(0)
 const show = ref(false)
+
 const uToastRef = ref()
 const modalShow = ref(false)
 const modalContent = ref('自定义模态框内容')
+
+// u-select 数据
+const selectShow = ref(false)
+const selectResult = ref('尚未选择')
+const selectDefaultValue = ref([3])
+const selectMode = ref<SelectMode>('single-column')
+const selectList = ref([
+  { value: '江', label: '江' },
+  { value: '湖', label: '湖' },
+  { value: '夜', label: '夜' },
+  { value: '雨', label: '雨' },
+  { value: '十', label: '十' },
+  { value: '年', label: '年' },
+  { value: '灯', label: '灯' },
+])
+
+// u-picker 数据
+const pickerShow = ref(false)
+const pickerResult = ref<string | string[]>('')
+const pickerRange = ref<string[]>(['一', '片', '冰', '心', '在', '玉', '壶'])
+const pickerMode = ref<PickerMode>('selector')
+const pickerDefaultSelector = ref([3])
 
 // 按钮操作
 async function handleButtonClick(type: string) {
@@ -78,6 +101,25 @@ async function showLoading() {
   show.value = true
   await new Promise(resolve => setTimeout(resolve, 2000))
   show.value = false
+}
+
+// u-select 事件
+function selectConfirm(e: { label: string, value: string }[]) {
+  selectResult.value = e.map(val => val.label).join('-')
+}
+
+function selectCancel() {
+  console.log('select cancelled')
+}
+
+// u-picker 事件
+function pickerConfirm(e: Record<string, any>) {
+  if (pickerMode.value === 'selector') {
+    pickerResult.value = pickerRange.value[e[0]]
+  }
+  else {
+    pickerResult.value = JSON.stringify(e)
+  }
 }
 
 // 组件分类
@@ -253,12 +295,58 @@ const tabList = [
           <u-button type="warning" size="mini" @click="showLoading">
             {{ t('demo.components.loading') }}
           </u-button>
+          <u-button type="info" size="mini" @click="selectShow = true">
+            {{ t('demo.components.select') }}(u-select)
+          </u-button>
+          <u-button type="info" size="mini" @click="pickerShow = true">
+            {{ t('demo.components.select') }}(u-picker)
+          </u-button>
         </view>
       </view>
 
       <u-loading-popup v-model="show" />
       <u-toast ref="uToastRef" />
       <u-modal v-model="modalShow" :content="modalContent" :show-cancel-button="true" />
+
+      <!-- 选择器组件 -->
+      <view class="section">
+        <u-text :text="t('demo.components.select')" size="28rpx" bold />
+
+        <!-- u-select -->
+        <u-card :title="`${t('demo.components.select')} (u-select)`" custom-class="demo-card">
+          <u-select
+            v-model="selectShow"
+            :default-value="selectDefaultValue"
+            :mode="selectMode"
+            :list="selectList"
+            @click="selectShow = true"
+            @confirm="selectConfirm"
+            @cancel="selectCancel"
+          />
+          <view class="picker-result">
+            <u-text :text="`select值：${selectResult}`" size="26rpx" />
+          </view>
+        </u-card>
+
+        <!-- u-picker -->
+        <u-card :title="`${t('demo.components.select')} (u-picker)`" custom-class="demo-card">
+          <u-picker
+            v-model="pickerShow"
+            :mode="pickerMode"
+            :default-selector="pickerDefaultSelector"
+            :range="pickerRange"
+            :preserve-selection="false"
+            @confirm="pickerConfirm"
+          >
+            <template #title>
+              <view>{{ t('demo.components.select') }}</view>
+            </template>
+          </u-picker>
+          <view class="picker-result">
+            <u-text :text="`picker值：${pickerResult || '尚未选择'}`" size="26rpx" />
+          </view>
+        </u-card>
+      </view>
 
       <!-- 组件分类 -->
       <view class="section">
@@ -338,6 +426,7 @@ const tabList = [
 
 .feedback-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 16rpx;
   margin-bottom: 24rpx;
 }
@@ -367,6 +456,12 @@ const tabList = [
 
   .component-info {
     flex: 1;
-  }
+}
+
+.picker-result {
+    padding: 16rpx 0;
+    margin-top: 16rpx;
+    border-top: 1rpx solid $u-border-color;
+}
 }
 </style>
