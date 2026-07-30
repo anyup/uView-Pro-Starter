@@ -3,6 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@11.18.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=11.0.0"
+  },
   "scripts": {
     "dev": "uni",
     "dev:custom": "uni -p",
