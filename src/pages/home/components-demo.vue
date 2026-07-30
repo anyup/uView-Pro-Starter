@@ -109,6 +109,7 @@ function selectConfirm(e: { label: string, value: string }[]) {
 }
 
 function selectCancel() {
+  // eslint-disable-next-line no-console
   console.log('select cancelled')
 }
 

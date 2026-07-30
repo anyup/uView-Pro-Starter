@@ -1,9 +1,22 @@
+<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app'
+import { useLocale, useTheme } from 'uview-pro'
+import { onMounted } from 'vue'
+
+const { darkMode, currentTheme } = useTheme()
+const { currentLocale, locales } = useLocale()
 
 onLoad(() => {
-  // eslint-disable-next-line no-console
   console.log('App.root.vue onLoad')
+  console.log('darkMode->', darkMode.value)
+  console.log('theme->', currentTheme.value?.name)
+  console.log('locale->', currentLocale.value?.name)
+  console.log('locales->', locales.value)
+})
+
+onMounted(() => {
+  console.log('App.root.vue onMounted')
 })
 </script>
 
