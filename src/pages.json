@@ -48,7 +48,9 @@
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "@navTxtStyle",
     "navigationBarTitleText": "uView Pro Starter",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "rpxCalcMaxDeviceWidth": 750,
+    "rpxCalcBaseDeviceWidth": 375
   },
   "tabBar": {
     "color": "@tabFontColor",
@@ -66,6 +68,25 @@
   },
   "easycom": {
     "autoscan": true
+  },
+  "leftWindow": {
+    "path": "responsive/left-window.vue",
+    "style": {
+      "width": "280px",
+      "min-width": "280px",
+      "flex-shrink": "0"
+    },
+    "matchMedia": {
+      "minWidth": 768
+    }
+  },
+  "rightWindow": {
+    "style": {
+      "width": "calc(100vw - 280px)"
+    },
+    "matchMedia": {
+      "minWidth": 768
+    }
   },
   "subPackages": []
 }

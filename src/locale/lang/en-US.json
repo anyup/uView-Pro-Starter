@@ -30,6 +30,23 @@
     "viewDocs": "View uView Pro Documentation",
     "viewComponents": "View Component Library Demo"
   },
+  "sidebar": {
+    "home": "Home",
+    "about": "About",
+    "overview": "Overview",
+    "uviewIntro": "uView Pro Intro",
+    "httpDemo": "HTTP Request",
+    "piniaDemo": "Pinia Persistence",
+    "componentsDemo": "Components",
+    "createDemo": "Scaffold",
+    "aboutApp": "About App",
+    "aboutMe": "About Me",
+    "license": "License",
+    "contributors": "Contributors",
+    "faq": "FAQ",
+    "guide": "User Guide",
+    "settings": "Settings"
+  },
   "about": {
     "title": "About Us",
     "version": "Version",
